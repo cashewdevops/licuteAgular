@@ -1,12 +1,36 @@
 @import 'fontes.scss';
 @import 'variavel.scss';
 
+main{
+    position: relative;
+}
+
+.modal-sub{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: #00000091;
+}
+
 .card{
     border: 1px solid #fff;
 }
 
+#container-detaque{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    // border: 1px solid red;
+    
+    img{
+        width: 50%;
+    }
+}
 .protudo{
-    // width: 254.3px;
     width: 20%;
     cursor: pointer;
     position: relative;
@@ -32,7 +56,7 @@
     .preco{
         font-family: 'Poppins-Black', sans-serif;
         font-size: 20px;
-        font-weight: 700;
+        // font-weight: 700;
         color: $color-primary;
     }
     .container-avaliacao{
@@ -54,4 +78,24 @@
         transform: translateX(-10px) translateY(-35px);
     }
     
+}
+
+#departamentos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .card{
+        margin: 0 10px;
+        float: left;
+        width: 10%;
+        height: 100px;
+    }
+
+    .card:nth-child(1){
+        margin-left: 0;
+    }
+    
+    .card:nth-child(4){
+        margin-right: 0;
+    }
 }

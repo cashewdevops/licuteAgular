@@ -150,6 +150,22 @@
             justify-content: flex-start;
             align-items: center;
 
+            .container-mais-opcoes{
+                cursor: pointer;
+                position: relative;
+
+                .container-categiras{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    transform: translateX(0)translateY(30px);
+                    width: 200px;
+                    height: 200px;
+                    background: red;
+                    z-index: 3;
+                }
+            }
+
             a{
                 text-decoration: none;
                 margin-left: 100px;
