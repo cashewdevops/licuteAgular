@@ -1,0 +1,47 @@
+@import 'variavel.scss';
+
+.container-login{
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    width: 700px;
+    // height: 200px;
+    padding: 50px 70px;
+
+    .descricao{
+        margin-bottom: 40px;
+        color: #5E5E5E;
+    }
+
+   
+
+    .row:nth-child(1){
+        margin-bottom: 30px;
+    }
+
+    .btn-entrar{
+        background: $color-second;
+        color: #fff;
+        width: 300px;
+        margin-top: 40px;
+        border-radius: 100px;
+    }
+
+    .link-esqueci-senha{
+        color: $color-second;
+    }
+
+    label{
+        color: #707070;
+    }
+
+    input{
+        outline: none;
+        box-shadow: none;
+
+        &:focus{
+            border: 1px solid $color-second;
+        }
+    }
+    
+}
