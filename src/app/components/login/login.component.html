@@ -2,18 +2,18 @@
     <h3>Login</h3>
     <div class="descricao">Cadastre-se para começar a comprar na loja virtual da InfoVale e aproveitar todas as promoções.</div>
 
-    <form action="">
+    <form [formGroup]="formulario" (ngSubmit)="login()">
         <div class="row">
             <div class="col">
                 <label>E-mail</label>
-                <input type="email" class="form-control" id="email-id">
+                <input type="email" class="form-control" id="email-id" formControlName="email">
             </div>
             
         </div>
         <div class="row">
             <div class="col">
                 <label>Senha</label>
-                <input type="password" id="password-id" class="form-control">
+                <input type="password" id="password-id" class="form-control" formControlName="senha">
             </div>
         </div>
         <div class="row">

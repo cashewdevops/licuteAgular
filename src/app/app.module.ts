@@ -10,6 +10,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { AcessoComponent } from './pages/acesso/acesso.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component'
+import { AutenticacaoServiceGuard } from './autenticacaoservice-guard.service';
+import { Autenticacao } from './Autenticacao.service';
 
 @NgModule({
   declarations: [
@@ -21,12 +26,15 @@ import { RegistroComponent } from './components/registro/registro.component';
     AcessoComponent,
     LoginComponent,
     RegistroComponent,
+    PerfilUsuarioComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [Autenticacao, AutenticacaoServiceGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
