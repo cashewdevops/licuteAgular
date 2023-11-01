@@ -33,13 +33,21 @@ export class Autenticacao {
 
         if(status == 200){
             this.token = (response as ApiResponse)?.token
+            localStorage.setItem('idToken', this.token)
             this.router.navigate(['/meu-acesso'])
         }
        
 
     }
 
-    public autenticando(){
+    public autenticando(): boolean{
+
+        if(this.token == undefined && localStorage.getItem('idToken') != null){
+            const idToken = localStorage.getItem('idToken');
+            if (idToken !== null) {
+                this.token = idToken;
+            }
+        }
 
         return this.token !== undefined
     }

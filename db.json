@@ -1,0 +1,15 @@
+{
+    "produtos":[
+        {
+            "id": 1,
+            "titulo": "Ut placerat gravida placerat",
+            "valor": "1.2",
+            "avaliacao": "3",
+            "destaque": 0,
+            "categoriaId": 2,
+            "imagens":[
+                {"url": "/assets/img/01.png"}
+            ]
+        }
+    ]
+}
