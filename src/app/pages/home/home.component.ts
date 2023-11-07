@@ -26,14 +26,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void{
     this.licute.getHomePage()
     .then((homepageLicute:DataHome) => {
-
-      
-      
       if(homepageLicute != undefined){
         this.hiddenLoading()
-        console.log(homepageLicute)
       }
-
       this.pgPrincipal = homepageLicute
     })
   }
