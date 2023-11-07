@@ -1,208 +1,49 @@
 <app-header></app-header>
-<!-- <div class="modal-sub"></div> -->
-<div class="container">
+<app-loading [showLoading]="loading" ></app-loading>
+
+<div class="container" *ngIf="pgPrincipal !== undefined">
 
     <div class="card p-3 mt-5">
         <div class="row">
-            <div class="titulo">Destaques</div>
+            <div class="titulo">{{pgPrincipal.destaques.titulo}}</div>
         </div>
     </div>
     
-    <div class="row mt-1" id="container-detaque">
-        <img src="/assets/img/Card de destaque.png">
-        <img src="/assets/img/Card de destaque.png">
+    <div class="row mt-1" id="container-detaque" >
+        <img *ngFor="let ban of pgPrincipal.destaques.bander" [src]="ban.url">
     </div>
     
-    <div class="card p-3 mt-5">
-        <div class="row">
-            <div class="titulo d-flex justify-content-between align-items-center">Para enfeitar a sua sala!  <a href="">Ver todos</a></div>
+    <div *ngFor="let departamentos of pgPrincipal.departamentos">
+        <div class="card p-3 mt-5">
+            <div class="row">
+                <div class="titulo d-flex justify-content-between align-items-center">Para enfeitar a sua sala!  <a href="">Ver todos</a></div>
+            </div>
         </div>
-    </div>
+        <div class="row mt-1">
+            <div class="col d-flex">
 
-    <div class="row mt-1">
+                <div class="card protudo" *ngFor="let produtos of departamentos.produtos">
+                    <div class="container-img">
+                        <img [src]="produtos.imagens[0].url">
+                    </div>
+                    <div class="descricao">Ut placerat gravida placerat</div>
+                    <div class="preco mt-1">R$: 1,0</div>
+                    <div class="tipo-pagamento">Á vista no Pix</div>
+                    <div class="container-avaliacao">
+                        <img src="/assets/img/estrela-cheia.svg">
+                        <img src="/assets/img/estrela-cheia.svg">
+                        <img src="/assets/img/estrela-cheia.svg">
+                        <img src="/assets/img/estrela-cheia.svg">
+                        <img src="/assets/img/estrela-cheia.svg">
+                    </div>
+                    <img src="assets/img/fav-not-select.svg" alt="" class="favor">
+                </div>
 
-        <div class="col d-flex">
-            <div class="card protudo">
-                <div class="container-img">
-                    <img src="/assets/img/01.png" >
-                </div>
-                <div class="descricao">Ut placerat gravida placerat</div>
-                <div class="preco mt-1">R$: 1,0</div>
-                <div class="tipo-pagamento">Á vista no Pix</div>
-                <div class="container-avaliacao">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                </div>
-                <img src="assets/img/fav-not-select.svg" alt="" class="favor">
-            </div>
-
-            <div class="card protudo float-left">
-                <div class="container-img">
-                    <img src="/assets/img/02.png" >
-                </div>
-                <div class="descricao ">Ut placerat gravida placerat</div>
-                <div class="preco mt-1">R$: 1,0</div>
-                <div class="tipo-pagamento">Á vista no Pix</div>
-                <div class="container-avaliacao">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                </div>
-                <img src="assets/img/fav-not-select.svg" alt="" class="favor">
-            </div>
-            
-            <div class="card protudo float-left">
-                <div class="container-img">
-                    <img src="/assets/img/03.png" >
-                </div>
-                <div class="descricao">Ut placerat gravida placerat</div>
-                <div class="preco mt-1">R$: 1,0</div>
-                <div class="tipo-pagamento">Á vista no Pix</div>
-                <div class="container-avaliacao">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                </div>
-                <img src="assets/img/fav-not-select.svg" alt="" class="favor">
-            </div>
-            
-            <div class="card protudo float-left">
-                <div class="container-img">
-                    <img src="/assets/img/04.png" >
-                </div>
-                <div class="descricao">Ut placerat gravida placerat</div>
-                <div class="preco mt-1">R$: 1,0</div>
-                <div class="tipo-pagamento">Á vista no Pix</div>
-                <div class="container-avaliacao">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                </div>
-                <img src="assets/img/fav-not-select.svg" alt="" class="favor">
-            </div>
-            <div class="card protudo float-left">
-                <div class="container-img">
-                    <img src="/assets/img/05.png" >
-                </div>
-                <div class="descricao">Ut placerat gravida placerat</div>
-                <div class="preco mt-1">R$: 1,0</div>
-                <div class="tipo-pagamento">Á vista no Pix</div>
-                <div class="container-avaliacao">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                </div>
-                <img src="assets/img/fav-not-select.svg" alt="" class="favor">
             </div>
         </div>
     </div>
-    <div class="card p-3 mt-5">
-        <div class="row">
-            <div class="titulo d-flex justify-content-between align-items-center">Para enfeitar a sua sala!  <a href="">Ver todos</a></div>
-        </div>
-    </div>
-
-    <div class="row mt-1">
-
-        <div class="col d-flex">
-            <div class="card protudo">
-                <div class="container-img">
-                    <img src="/assets/img/01.png" >
-                </div>
-                <div class="descricao">Ut placerat gravida placerat</div>
-                <div class="preco mt-1">R$: 1,0</div>
-                <div class="tipo-pagamento">Á vista no Pix</div>
-                <div class="container-avaliacao">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                </div>
-                <img src="assets/img/fav-not-select.svg" alt="" class="favor">
-            </div>
-
-            <div class="card protudo float-left">
-                <div class="container-img">
-                    <img src="/assets/img/02.png" >
-                </div>
-                <div class="descricao ">Ut placerat gravida placerat</div>
-                <div class="preco mt-1">R$: 1,0</div>
-                <div class="tipo-pagamento">Á vista no Pix</div>
-                <div class="container-avaliacao">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                </div>
-                <img src="assets/img/fav-not-select.svg" alt="" class="favor">
-            </div>
-            
-            <div class="card protudo float-left">
-                <div class="container-img">
-                    <img src="/assets/img/03.png" >
-                </div>
-                <div class="descricao">Ut placerat gravida placerat</div>
-                <div class="preco mt-1">R$: 1,0</div>
-                <div class="tipo-pagamento">Á vista no Pix</div>
-                <div class="container-avaliacao">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                </div>
-                <img src="assets/img/fav-not-select.svg" alt="" class="favor">
-            </div>
-            
-            <div class="card protudo float-left">
-                <div class="container-img">
-                    <img src="/assets/img/04.png" >
-                </div>
-                <div class="descricao">Ut placerat gravida placerat</div>
-                <div class="preco mt-1">R$: 1,0</div>
-                <div class="tipo-pagamento">Á vista no Pix</div>
-                <div class="container-avaliacao">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                </div>
-                <img src="assets/img/fav-not-select.svg" alt="" class="favor">
-            </div>
-            <div class="card protudo float-left">
-                <div class="container-img">
-                    <img src="/assets/img/05.png" >
-                </div>
-                <div class="descricao">Ut placerat gravida placerat</div>
-                <div class="preco mt-1">R$: 1,0</div>
-                <div class="tipo-pagamento">Á vista no Pix</div>
-                <div class="container-avaliacao">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                    <img src="/assets/img/estrela-cheia.svg">
-                </div>
-                <img src="assets/img/fav-not-select.svg" alt="" class="favor">
-            </div>
-        </div>
-    </div>
-
-
+    
 </div>
+
 
 <app-footer></app-footer>

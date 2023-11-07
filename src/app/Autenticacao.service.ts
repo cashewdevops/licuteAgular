@@ -12,7 +12,7 @@ interface ApiResponse {
 @Injectable()
 export class Autenticacao {
 
-    public token:string
+    private token:string
     private rota:string = environment.API
   
 

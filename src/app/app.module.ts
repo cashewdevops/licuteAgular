@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component'
 import { AutenticacaoServiceGuard } from './autenticacaoservice-guard.service';
 import { Autenticacao } from './Autenticacao.service';
+import { LoadingComponent } from './components/loading/loading.component';
+import { DetalheComponent } from './pages/detalhe/detalhe.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { Autenticacao } from './Autenticacao.service';
     LoginComponent,
     RegistroComponent,
     PerfilUsuarioComponent,
+    LoadingComponent,
+    DetalheComponent,
   ],
   imports: [
     BrowserModule,

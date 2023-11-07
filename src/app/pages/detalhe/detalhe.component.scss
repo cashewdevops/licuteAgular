@@ -1,0 +1,60 @@
+.page{
+    padding: 10px;
+    border-top: 1px solid rgb(223, 223, 223);
+    border-radius: 0;
+    // border: none;
+}
+
+.container{
+    .card{
+        border: none;
+        border-radius: 2px;
+    }
+
+    .container-v-imagem{
+        padding: 40px;
+    }
+    .container-image-p{
+        margin-right: 10px;
+        .min-imagens{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: row;
+            padding: 10px;
+            overflow: hidden;
+            img{
+                margin: 10px;
+                float: left;
+                display: block;
+                width: 23%;
+            }
+        }
+    }
+
+    .container-detalhes{
+        .titulo-detalhe{
+            padding: 20px 15px;
+            h4{
+                font-weight: 700;
+            }
+        }
+    }
+
+    .container-descricao{
+        .card{
+            padding: 20px;
+
+            .descricao{
+                color: gray;
+                font-size: 14px;
+            }
+
+            .destalhe-descricao{
+                color: gray;
+                font-size: 16px;
+                font-weight: lighter;
+            }
+        }
+    }
+}

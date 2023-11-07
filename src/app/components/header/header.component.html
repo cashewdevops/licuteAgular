@@ -1,12 +1,12 @@
 <div id="caixa-superior"></div>
     <div id="superior">
-      <img src="/assets/img/logo_branco.gif" width="200px" id="logo-ecommercer">
+      <img [routerLink]="['']" src="/assets/img/logo_branco.gif" width="200px" id="logo-ecommercer">
       <li id="ibars" class="fas fa-bars"></li>
       <div id="container-buscador">
         <input type="text" placeholder="O que você procura ?">
         <li id="isearch" class="fas fa-search"></li>
       </div>
-      <div id="container-singin">
+      <div [routerLink]="['acesso']" id="container-singin">
         <div>Olá :)</div>
         <a routerLink="login">Entre ou Cadastra-se</a>
       </div>
@@ -17,11 +17,11 @@
     </div>
     <div id="sub-menus">
       <div class="container devider">
-          <div class="container-mais-opcoes">
+          <!--<div class="container-mais-opcoes">
             <li class="fas fa-bars"></li>
               Menu
-              <!-- <div class="container-categiras"></div> -->
-          </div>
+               <div class="container-categiras"></div> 
+            </div>-->
           <a href="#">Chaveiros</a>
           <a href="#">Porta retrato</a>
       </div>

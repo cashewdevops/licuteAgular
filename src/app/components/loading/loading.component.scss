@@ -1,0 +1,31 @@
+.container{
+
+    
+    .titulo-departamento{
+       .card{
+            height: 60px;
+            border: none;
+            padding: 10px;
+
+            .kl1{
+                height: 40px;
+                border-radius: 5px;
+            }
+       }
+    }
+
+    .departamento-produto{
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        .card-produto{
+            width: 20%;
+            padding: 20px;
+            // margin: 0 5px;
+            margin: 3px;
+            height: 300px;
+            border: none;
+
+        }
+    }
+}
