@@ -8,9 +8,6 @@ import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.co
 import { AutenticacaoServiceGuard } from './autenticacaoservice-guard.service';
 import { DetalheComponent } from './pages/detalhe/detalhe.component';
 
-
-
-
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path:'acesso', component: AcessoComponent, children: [

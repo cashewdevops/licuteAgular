@@ -2,8 +2,8 @@
 <main class="container-login-registro">
     <div class="container-login-registro">
         <div class="container-painel-opcoes" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-          <button class="container-login opcoes mb-3 active" id="login-tab" routerLink="login" data-bs-toggle="pill" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="true"><li class="fas fa-sign-in-alt"></li></button>
-          <button class="container-registro opcoes" id="cadastro-tab" routerLink="registro" data-bs-toggle="pill" data-bs-target="#cadastro" type="button" role="tab" aria-controls="cadastro" aria-selected="false"><li class="fas fa-user-plus"></li></button>
+          <button class="container-login opcoes mb-3 active" id="login-tab" [routerLink]="['login']" data-bs-toggle="pill" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="true"><li class="fas fa-sign-in-alt"></li></button>
+          <button class="container-registro opcoes" id="cadastro-tab" [routerLink]="['registro']" data-bs-toggle="pill" data-bs-target="#cadastro" type="button" role="tab" aria-controls="cadastro" aria-selected="false"><li class="fas fa-user-plus"></li></button>
         </div>
         <div class="tab-content" id="v-pills-tabContent">
             <router-outlet></router-outlet>

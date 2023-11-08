@@ -13,12 +13,14 @@ export class LicuteService {
   constructor(private http: HttpClient) { }
 
   async getHomePage(): Promise<DataHome>{
-   
+
     return this.http.get(`${this.url}/data_home`)
       .toPromise()
       .then((response:any) => response)
       .catch(erro => console.log(erro))
 
   }
+
+  
 
 }
