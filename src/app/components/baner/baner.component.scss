@@ -1,0 +1,26 @@
+@import 'variavel.scss';
+
+.container-baner-img{
+
+    img{
+        width: 100%;
+        margin-bottom: 10px;
+    
+        @media (min-width: $breakpoint-tablets) {
+            width: 100%;
+            margin-bottom: 0px;
+        }
+    }
+
+    .card{
+        height: 209.547px;
+        border: none;
+        padding: 10px;
+
+        .kl1{
+            height: 130px;
+            border-radius: 5px;
+        }
+   }
+   
+}

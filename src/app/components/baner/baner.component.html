@@ -1,0 +1,14 @@
+<div class="container-baner-img">
+
+    <ng-template *ngIf="loaded; else skeleton">
+        <div class="card" >
+            <p class="placeholder-glow animate__animated animate__fadeOut">
+                <span class="placeholder col-12 kl1"></span>
+            </p>
+        </div>
+    </ng-template>
+    
+    <ng-template #skeleton>
+        <img class="animate__animated  animate__fadeIn" #skeleton (load)="onImageLoad()" crossorigin="anonymous" [src]="imagem" alt="Imagem" loading="lazy">
+    </ng-template>
+</div>

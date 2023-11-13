@@ -17,6 +17,9 @@ import { AutenticacaoServiceGuard } from './autenticacaoservice-guard.service';
 import { Autenticacao } from './Autenticacao.service';
 import { LoadingComponent } from './components/loading/loading.component';
 import { DetalheComponent } from './pages/detalhe/detalhe.component';
+import { BanerComponent } from './components/baner/baner.component';
+import { ImageCardProdutoComponent } from './components/image-card-produto/image-card-produto.component';
+import { ProdutoComponent } from './components/produto/produto.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { DetalheComponent } from './pages/detalhe/detalhe.component';
     PerfilUsuarioComponent,
     LoadingComponent,
     DetalheComponent,
+    BanerComponent,
+    ImageCardProdutoComponent,
+    ProdutoComponent,
   ],
   imports: [
     BrowserModule,

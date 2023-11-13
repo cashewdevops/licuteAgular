@@ -1,49 +1,59 @@
 <app-header></app-header>
 <app-loading [showLoading]="loading" ></app-loading>
 
-<div class="container" *ngIf="pgPrincipal !== undefined">
+<div class="container" *ngIf="catalogos !== undefined" >
 
-    <div class="card p-3 mt-5">
-        <div class="row">
-            <div class="titulo">{{pgPrincipal.destaques.titulo}}</div>
+    <div *ngFor="let catalogo of catalogos">
+
+        <div class="p-3 mt-5" *ngIf="!catalogo.isbaner">
+            <div class="row">
+                <div class="titulo">{{catalogo.nome}}</div>
+            </div>
+            <hr>
         </div>
+
+        <div class="row mt-5" id="container-detaque" *ngIf="catalogo.isbaner">
+            <app-baner [InputImagemBaner]="catalogo.img"></app-baner>
+        </div>
+
+
+        <section *ngIf="!catalogo.isbaner" class="container-card-produto">
+        
+            <div class="row mt-1" >
+                <div class="col d-flex" >
+                    <div class="card protudo" *ngFor="let departamentos of catalogo.has | slice:0:5">
+                        <div class="container-img">
+                            <img [src]="">
+                        </div>
+                        <div class="descricao">Ut placerat gravida placerat</div>
+                        <div class="preco mt-1">R$: 1,0</div>
+                        <div class="tipo-pagamento">Á vista no Pix</div>
+                        <div class="container-avaliacao">
+                            <img src="/assets/img/estrela-cheia.svg">
+                            <img src="/assets/img/estrela-cheia.svg">
+                            <img src="/assets/img/estrela-cheia.svg">
+                            <img src="/assets/img/estrela-cheia.svg">
+                            <img src="/assets/img/estrela-cheia.svg">
+                        </div>
+                        <img src="assets/img/fav-not-select.svg" alt="" class="favor">
+                    </div>
+    
+                </div>
+            </div>
+
+        </section>
+        
+
+
+        
     </div>
+    <!-- 
     
     <div class="row mt-1" id="container-detaque" >
-        <img *ngFor="let ban of pgPrincipal.destaques.bander" [src]="ban.url">
+        <img *ngFor="let ban of catalogo.destaques.bander" [src]="ban.url">
     </div>
     
-    <div *ngFor="let departamentos of pgPrincipal.departamentos">
-        <div class="card p-3 mt-5">
-            <div class="row">
-                <div class="titulo d-flex justify-content-between align-items-center">Para enfeitar a sua sala!  <a href="">Ver todos</a></div>
-            </div>
-        </div>
-        <div class="row mt-1">
-            <div class="col d-flex">
-
-                <div class="card protudo" *ngFor="let produtos of departamentos.produtos">
-                    <div class="container-img">
-                        <img [src]="produtos.imagens[0].url">
-                    </div>
-                    <div class="descricao">Ut placerat gravida placerat</div>
-                    <div class="preco mt-1">R$: 1,0</div>
-                    <div class="tipo-pagamento">Á vista no Pix</div>
-                    <div class="container-avaliacao">
-                        <img src="/assets/img/estrela-cheia.svg">
-                        <img src="/assets/img/estrela-cheia.svg">
-                        <img src="/assets/img/estrela-cheia.svg">
-                        <img src="/assets/img/estrela-cheia.svg">
-                        <img src="/assets/img/estrela-cheia.svg">
-                    </div>
-                    <img src="assets/img/fav-not-select.svg" alt="" class="favor">
-                </div>
-
-            </div>
-        </div>
-    </div>
+     -->
     
 </div>
-
-
-<app-footer></app-footer>
+ <app-footer></app-footer>

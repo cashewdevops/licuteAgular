@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LicuteService } from 'src/app/licute.service';
-import { DataHome } from 'src/app/shared/DataHome.model';
+import { Catalogo } from 'src/app/shared/Catalogo.model';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +11,12 @@ import { DataHome } from 'src/app/shared/DataHome.model';
 })
 export class HomeComponent implements OnInit {
 
-  public pgPrincipal: DataHome
+  public catalogos: Catalogo[]
+  public baseUrl:string = environment.API
 
-  public loading:boolean = true
-  
+  public loading:boolean = true  
 
-  constructor(private licute: LicuteService){
+  constructor(private licute: LicuteService,){
     
   }
   
@@ -24,15 +25,17 @@ export class HomeComponent implements OnInit {
   }
   
   ngOnInit(): void{
+
     this.licute.getHomePage()
-    .then((homepageLicute:DataHome) => {
-      if(homepageLicute != undefined){
-        this.hiddenLoading()
-      }
-      this.pgPrincipal = homepageLicute
+    .then((catalogo:Catalogo[]) => {
+
+      if(catalogo != undefined) this.hiddenLoading()
+
+        this.catalogos = catalogo
+        
     })
   }
 
-  
+ 
 
 }

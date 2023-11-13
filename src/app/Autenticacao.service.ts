@@ -27,15 +27,15 @@ export class Autenticacao {
         }
         const body = JSON.stringify({email: email, senha: senha})
         
-        const response = await this.http.post(`${this.rota}/login`, body, { headers }).toPromise();
+        const response = await this.http.post(`${this.rota}/user-singin`, body, { headers }).toPromise();
         
-        const status = (response as ApiResponse)?.status
+        // const status = (response as ApiResponse)?.status
 
-        if(status == 200){
-            this.token = (response as ApiResponse)?.token
-            localStorage.setItem('idToken', this.token)
-            this.router.navigate(['/meu-acesso'])
-        }
+        // if(status == 200){
+        //     this.token = (response as ApiResponse)?.token
+        //     localStorage.setItem('idToken', this.token)
+        //     this.router.navigate(['/meu-acesso'])
+        // }
        
 
     }

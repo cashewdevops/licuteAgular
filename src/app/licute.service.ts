@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import { DataHome } from './shared/DataHome.model';
+import { Catalogo } from './shared/Catalogo.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +12,9 @@ export class LicuteService {
 
   constructor(private http: HttpClient) { }
 
-  async getHomePage(): Promise<DataHome>{
+  async getHomePage(): Promise<Catalogo[]>{
 
-    return this.http.get(`${this.url}/data_home`)
+    return this.http.get(`${this.url}/catalogo`)
       .toPromise()
       .then((response:any) => response)
       .catch(erro => console.log(erro))
