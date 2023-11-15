@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment.development';
 export class BanerComponent {
 
   @Input() InputImagemBaner:string
-  public loaded:boolean = true
+  // public loaded:boolean = true
   public imagem:string
   public urlApi:string = `${environment.API}/upload/`
   
@@ -18,13 +18,7 @@ export class BanerComponent {
   }
 
   ngOnInit(){
-    this.onImageLoad()
-  }
-
-  onImageLoad(){
-    this.loaded = false
     this.imagem = `${this.urlApi}${this.InputImagemBaner}`
   }
-
 
 }

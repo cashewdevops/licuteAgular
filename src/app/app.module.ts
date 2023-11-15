@@ -18,7 +18,7 @@ import { Autenticacao } from './Autenticacao.service';
 import { LoadingComponent } from './components/loading/loading.component';
 import { DetalheComponent } from './pages/detalhe/detalhe.component';
 import { BanerComponent } from './components/baner/baner.component';
-import { ImageCardProdutoComponent } from './components/image-card-produto/image-card-produto.component';
+import { ImageProdutoComponent } from './components/image-produto/image-produto.component';
 import { ProdutoComponent } from './components/produto/produto.component';
 
 @NgModule({
@@ -35,7 +35,7 @@ import { ProdutoComponent } from './components/produto/produto.component';
     LoadingComponent,
     DetalheComponent,
     BanerComponent,
-    ImageCardProdutoComponent,
+    ImageProdutoComponent,
     ProdutoComponent,
   ],
   imports: [
