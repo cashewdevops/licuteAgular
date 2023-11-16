@@ -20,6 +20,7 @@ import { DetalheComponent } from './pages/detalhe/detalhe.component';
 import { BanerComponent } from './components/baner/baner.component';
 import { ImageProdutoComponent } from './components/image-produto/image-produto.component';
 import { ProdutoComponent } from './components/produto/produto.component';
+import { ProdutosOfertaComponent } from './pages/produtos-oferta/produtos-oferta.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ProdutoComponent } from './components/produto/produto.component';
     BanerComponent,
     ImageProdutoComponent,
     ProdutoComponent,
+    ProdutosOfertaComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,4 +49,10 @@ import { ProdutoComponent } from './components/produto/produto.component';
   providers: [Autenticacao, AutenticacaoServiceGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+  constructor(private autenticacao:Autenticacao){
+    this.autenticacao.verifyToken()
+  }
+
+}

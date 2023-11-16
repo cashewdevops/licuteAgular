@@ -19,28 +19,7 @@
 
         <section *ngIf="!catalogo.isbaner" class="container-card-produto">
         
-            <div class="row mt-1" >
-                <div class="col d-flex" >
-                    <div class="card protudo" *ngFor="let produto of catalogo.has | slice:0:5">
-                        <div class="container-img">
-                            <app-image-produto [InputImage]="produto.imagemProduto[0].img"></app-image-produto>
-                        </div>
-                        <div class="descricao">{{produto.nome}}</div>
-                        <div class="preco mt-1">R$: {{produto.preco}}</div>
-                        <div class="tipo-pagamento">Á vista no Pix</div>
-                        <div class="tipo-parcelado">ou 10x de <strong>R$ 2,0</strong></div>
-                        <div class="container-avaliacao">
-                            <img src="/assets/img/estrela-cheia.svg">
-                            <img src="/assets/img/estrela-cheia.svg">
-                            <img src="/assets/img/estrela-cheia.svg">
-                            <img src="/assets/img/estrela-cheia.svg">
-                            <img src="/assets/img/estrela-cheia.svg">
-                        </div>
-                        <img src="assets/img/fav-not-select.svg" alt="" class="favor">
-                    </div>
-    
-                </div>
-            </div>
+            <app-produto [inputdados]="catalogo.has" ></app-produto>
 
         </section>
         
@@ -57,4 +36,4 @@
      -->
     
 </div>
- <app-footer></app-footer>
+<app-footer></app-footer>

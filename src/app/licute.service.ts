@@ -14,7 +14,17 @@ export class LicuteService {
 
   async getHomePage(): Promise<Catalogo[]>{
 
-    return this.http.get(`${this.url}/catalogo`)
+    let token = localStorage.getItem('idToken');
+
+    if (!token) {
+        token = ''
+    }
+
+    const headers = {
+      "authorization": token
+    }
+
+    return this.http.get(`${this.url}/catalogo`, {headers})
       .toPromise()
       .then((response:any) => response)
       .catch(erro => console.log(erro))

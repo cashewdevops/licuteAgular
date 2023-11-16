@@ -52,4 +52,38 @@ export class Autenticacao {
         return this.token !== undefined
     }
 
+    public async verifyToken(){
+
+       try {
+
+            let token = localStorage.getItem('idToken');
+
+            if (!token) {
+                token = ''
+            }
+
+
+            const headers = {
+                "Content-Type": "application/json",
+                "authorization": token
+            }
+
+
+
+            const responseToken = await this.http.post(`${this.rota}/checked-token`, {}, {headers}).toPromise()
+
+           
+       } catch (error:any) {
+        
+            if(error.status == 401){
+                
+                localStorage.removeItem('idToken')
+
+            }
+
+       }
+        
+
+    }
+
 }

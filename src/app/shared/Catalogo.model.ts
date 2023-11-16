@@ -1,3 +1,5 @@
+import { IProduto } from "./IProduto"
+
 
 export class Catalogo {
     id:number
@@ -5,17 +7,6 @@ export class Catalogo {
     isbaner:boolean
     img:string
     ordenacao:number
-    has:Array<{
-        id:number
-        nome:string
-        qtd_min:number
-        descricao:string
-        preco:number
-        ativado:boolean
-        imagemProduto:Array<{
-            id:number
-            img:string
-        }>
-    }>
+    has:Array<IProduto>
 }
 
