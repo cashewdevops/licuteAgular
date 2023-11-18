@@ -6,12 +6,19 @@
         <input type="text" placeholder="O que você procura ?">
         <li id="isearch" class="fas fa-search"></li>
       </div>
-      <div routerLink="/acesso" id="container-singin">
+      
+      <div *ngIf="!isLogado" id="container-singin">
         <div>Olá :)</div>
-        <a routerLink="login">Entre ou Cadastra-se</a>
+        <a routerLink="acesso">Entre ou Cadastra-se</a>
       </div>
+
+      <div *ngIf="isLogado" id="container-singin">
+        <div>Olá :) <strong>{{Usuario.nome.split(' ')[0]}}</strong></div>
+        <a routerLink="meu-acesso">Meu acesso</a>
+      </div>
+
       <div id="container-opcoes">
-        <button id="favorito"><img src="/assets/img/coracao-fav.svg">Favorito</button>
+        <button id="favorito"><div class="indicator">0</div><img src="/assets/img/coracao-fav.svg">Favorito</button>
         <button id="box"> <img src="/assets/img/box.svg"> Box</button>
       </div>
     </div>

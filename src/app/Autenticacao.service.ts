@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 
 import { environment } from "src/environments/environment.development";
 import { Router } from "@angular/router";
+import { IUsuario } from "./types/Iusuario";
 
 interface ApiResponse {
     token:string,
@@ -52,38 +53,29 @@ export class Autenticacao {
         return this.token !== undefined
     }
 
-    public async verifyToken(){
-
+    public async verifyToken(): Promise<IUsuario>{
        try {
-
             let token = localStorage.getItem('idToken');
-
             if (!token) {
                 token = ''
             }
-
-
             const headers = {
                 "Content-Type": "application/json",
                 "authorization": token
             }
+            
+           return this.http.post(`${this.rota}/checked-token`, {}, {headers})
+                .toPromise()
+                .then((response:any) => response)
+                .catch()
 
-
-
-            const responseToken = await this.http.post(`${this.rota}/checked-token`, {}, {headers}).toPromise()
-
-           
        } catch (error:any) {
-        
             if(error.status == 401){
-                
                 localStorage.removeItem('idToken')
-
             }
 
+            throw error
        }
-        
-
     }
 
 }

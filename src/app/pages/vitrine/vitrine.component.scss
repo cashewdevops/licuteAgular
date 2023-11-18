@@ -1,0 +1,36 @@
+@import 'variavel.scss';
+
+
+.container{
+
+    .titlio-oferta{
+        background: $color-second;
+        padding: 17px;
+        font-size: 25px;
+        color: #fff;
+        font-weight: 700;
+    }
+
+    .container-produto-filtro{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: row;
+    }
+    
+    #filtro{
+        width: 40%;
+        height: 100%;
+        border: none;
+        border-radius:  0;  
+    }
+    // #produtos{
+    //     // border: 1px solid red;
+    //     margin: 0 10px 0 0;
+    // }
+    // #filtro{
+    //     border: 1px solid black;
+    // }
+
+    
+}

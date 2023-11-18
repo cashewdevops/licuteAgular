@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
     this.loading = false
   }
   
-  ngOnInit(): void{
+  ngOnInit(){
 
     this.licute.getHomePage()
     .then((catalogo:Catalogo[]) => {

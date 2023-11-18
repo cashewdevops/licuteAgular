@@ -1,20 +1,25 @@
 
 @import 'variavel.scss';
 .container-produto{
-    display: flex;
+   overflow: hidden;
 }
 .protudo{
-    width: 20%;
+    float: left;
+    width: 24%;
+    height: 450px;
     cursor: pointer;
     position: relative;
     padding:10px 10px 20px 10px;
-    display: inline-block; 
-    margin: 3px;
+    // display: inline-block; 
+    margin-left: 10px;
     .container-img{
         height: 230px;
-        
     }
     .descricao{
+        word-break: keep-all;
+        overflow: hidden;
+        // border: 1px solid red;
+        height: 70px;
         margin-top: 10px;
         font-size: 17px;
         font-weight: 700;

@@ -20,7 +20,10 @@ import { DetalheComponent } from './pages/detalhe/detalhe.component';
 import { BanerComponent } from './components/baner/baner.component';
 import { ImageProdutoComponent } from './components/image-produto/image-produto.component';
 import { ProdutoComponent } from './components/produto/produto.component';
-import { ProdutosOfertaComponent } from './pages/produtos-oferta/produtos-oferta.component';
+import { VitrineComponent } from './pages/vitrine/vitrine.component';
+import { ProdutoVitrineComponent } from './components/produto-vitrine/produto-vitrine.component';
+import { IndicePaginaComponent } from './components/indice-pagina/indice-pagina.component';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +41,9 @@ import { ProdutosOfertaComponent } from './pages/produtos-oferta/produtos-oferta
     BanerComponent,
     ImageProdutoComponent,
     ProdutoComponent,
-    ProdutosOfertaComponent,
+    VitrineComponent,
+    ProdutoVitrineComponent,
+    IndicePaginaComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,9 +55,5 @@ import { ProdutosOfertaComponent } from './pages/produtos-oferta/produtos-oferta
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  
-  constructor(private autenticacao:Autenticacao){
-    this.autenticacao.verifyToken()
-  }
 
 }

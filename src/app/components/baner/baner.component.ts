@@ -8,17 +8,18 @@ import { environment } from 'src/environments/environment.development';
 })
 export class BanerComponent {
 
-  @Input() InputImagemBaner:string
-  // public loaded:boolean = true
+  @Input() InputImagemBaner:Array<any>
   public imagem:string
   public urlApi:string = `${environment.API}/upload/`
+  public baseURL:string
   
   constructor(){
 
   }
 
   ngOnInit(){
-    this.imagem = `${this.urlApi}${this.InputImagemBaner}`
+    this.imagem = `${this.urlApi}${this.InputImagemBaner[0]}`
+    this.baseURL = this.InputImagemBaner[1]
   }
 
 }

@@ -1,8 +1,17 @@
-<div class="container-baner-img">
 
-    <img id="img-baner" crossorigin="anonymous" [src]="imagem" alt="Imagem" loading="lazy">
+<ng-template *ngIf="baseURL !== undefined; then link else notLink"></ng-template>
 
-</div>
+<ng-template  #link>
+    <div class="container-baner-img" [routerLink]="['vitrine', baseURL]">
+        <img id="img-baner" crossorigin="anonymous" [src]="imagem" alt="Imagem" loading="lazy">
+    </div>
+</ng-template>
+
+<ng-template #notLink>
+    <div class="container-baner-img">
+        <img id="img-baner" crossorigin="anonymous" [src]="imagem" alt="Imagem" loading="lazy">
+    </div>
+</ng-template>
 
 
 <!-- <div class="container-baner-img">

@@ -7,7 +7,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
 import { AutenticacaoServiceGuard } from './autenticacaoservice-guard.service';
 import { DetalheComponent } from './pages/detalhe/detalhe.component';
-import { ProdutosOfertaComponent } from './pages/produtos-oferta/produtos-oferta.component';
+import { VitrineComponent } from './pages/vitrine/vitrine.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,7 +18,7 @@ const routes: Routes = [
   ]},
   {path: 'meu-acesso', component: PerfilUsuarioComponent, canActivate: [AutenticacaoServiceGuard]},
   {path: 'produto/:id/:descricao', component: DetalheComponent},
-  {path: 'produtos-oferta/:qual', component: ProdutosOfertaComponent}
+  {path: 'vitrine/:qual', component: VitrineComponent}
 ];
 
 @NgModule({

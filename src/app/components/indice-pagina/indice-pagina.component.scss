@@ -1,0 +1,17 @@
+.indice-pagina{
+    padding: 0;
+    strong{
+        color: #42464D;
+    }
+
+    a{
+        font-weight: 400;
+    }
+
+    a:nth-child(1){
+        margin-right: 5px;
+    }
+    a:nth-child(3){
+        margin-left: 5px;
+    }
+}

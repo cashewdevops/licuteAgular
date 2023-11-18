@@ -1,0 +1,21 @@
+<app-header></app-header>
+<div class="container">
+    <app-indice-pagina [pagina]="paginaVitrine"></app-indice-pagina>
+    <div class="data" *ngIf="catalogos !== undefined">
+        <app-baner *ngIf="catalogos[0].isbaner" [InputImagemBaner]="[catalogos[0].img]" ></app-baner>
+        <section *ngFor="let catalogo of catalogos">
+
+            <div class="titlio-oferta mt-5" *ngIf="!catalogo.isbaner">{{catalogo.nome}}</div>
+
+            <div class="mt-2 container-produto-filtro">
+                <div class="card" id="filtro">cc</div>
+                <div id="produtos">
+                    <app-produto-vitrine [inputdados]="catalogo.has" ></app-produto-vitrine>
+                </div>
+            </div>
+
+        </section>
+        
+    </div>
+</div>
+<app-footer></app-footer>
