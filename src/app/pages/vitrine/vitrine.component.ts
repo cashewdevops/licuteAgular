@@ -43,9 +43,6 @@ export class VitrineComponent {
         this.categoriaSeleionado.splice(index, 1)
       }
     }    
-
-    console.log(this.categoriaSeleionado)
-
     this.seacherCatalogo()
 
   }
