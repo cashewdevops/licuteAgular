@@ -39,14 +39,14 @@ export class LicuteService {
   }
 
   
-  getCatalogo(nome:string): Promise<any>{
+  getCatalogo(nome:string, categoria:Array<number>): Promise<any>{
 
     const headers = {
       "Content-Type": "application/json",
     }
 
-    const body = JSON.stringify({nome: nome})
-
+    const body = JSON.stringify({nome: nome, CategoriaId:categoria})
+    
     return this.http.post(`${this.url}/catalogo-search`, body, {headers})
       .toPromise()
       .then((response:any) => response)

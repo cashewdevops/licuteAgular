@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Autenticacao } from 'src/app/Autenticacao.service';
+import { VerificarToken } from 'src/app/shared/VerificarToken';
+import { ICategoria } from 'src/app/types/ICategoria';
 import { IUsuario } from 'src/app/types/Iusuario';
 
 @Component({
@@ -9,6 +11,7 @@ import { IUsuario } from 'src/app/types/Iusuario';
 })
 export class HeaderComponent {
   
+  public categoria:Array<ICategoria>
   public isLogado:boolean = false
   public Usuario:IUsuario
 
@@ -20,13 +23,17 @@ export class HeaderComponent {
     this.checkedAutenticacao()
   }
   checkedAutenticacao(){
+
     this.autenticacao.verifyToken()
-    .then((response:IUsuario) => {
-      if(response.nome != undefined){
+    .then((response:VerificarToken) => {
+      if(response.usuario.nome != undefined){
         this.isLogado = true
-        this.Usuario = response
+        this.Usuario = response.usuario
       }
+      this.categoria = response.categoria
     })
+
+
   }
 
 

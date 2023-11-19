@@ -13,21 +13,35 @@
 
     .container-produto-filtro{
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: flex-start;
         flex-direction: row;
     }
     
     #filtro{
-        width: 40%;
+        width: 300px;
         height: 100%;
         border: none;
-        border-radius:  0;  
+        border-radius:  0;
+        padding: 16px;
+        font-size: 15px;
+        font-weight: 800;  
+
+        .titulo-filtro{
+            color: #42464D;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .checkeds{
+            margin-top: 10px;
+            .form-check-label{
+                font-weight: 300;
+            }
+        }
     }
-    // #produtos{
-    //     // border: 1px solid red;
-    //     margin: 0 10px 0 0;
-    // }
+    #produtos{
+        width: 100%;
+        // margin: 0 10px 0 0;
+    }
     // #filtro{
     //     border: 1px solid black;
     // }

@@ -4,9 +4,14 @@ import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment.development";
 import { Router } from "@angular/router";
 import { IUsuario } from "./types/Iusuario";
+import { HttpErrorResponse } from "./shared/HttpErrorResponse.model";
+import { ReponserSingIng } from "./shared/ReponserSingIng.model";
+import { VerificarToken } from "./shared/VerificarToken";
 
 interface ApiResponse {
     token:string,
+    nome:string
+    email:string
     status:number
 }
 
@@ -23,21 +28,34 @@ export class Autenticacao {
 
     public async autenticar(email:string, senha:string) {
 
-        const headers = {
-            "Content-Type": "application/json"
-        }
-        const body = JSON.stringify({email: email, senha: senha})
-        
-        const response = await this.http.post(`${this.rota}/user-singin`, body, { headers }).toPromise();
-        
-        // const status = (response as ApiResponse)?.status
+       try {
 
-        // if(status == 200){
-        //     this.token = (response as ApiResponse)?.token
-        //     localStorage.setItem('idToken', this.token)
-        //     this.router.navigate(['/meu-acesso'])
-        // }
-       
+            const headers = {
+                "Content-Type": "application/json"
+            }
+            const body = JSON.stringify({email: email, senha: senha})
+            
+            const response = await this.http.post(`${this.rota}/user-singin`, body, { headers }).toPromise();
+            
+            const data = (response as ReponserSingIng)
+
+            if(data.cpf != undefined){
+
+                this.token = data.token
+
+                localStorage.setItem('idToken', this.token)
+                localStorage.setItem('usuario', btoa(JSON.stringify(data)))
+                this.router.navigate(['/meu-acesso'])
+            }
+        
+       } catch (error) {
+            const resErro = (error as HttpErrorResponse)?.status
+            if(resErro == 401){
+
+                alert('E-mail ou senha incorreto')
+
+            }
+       }
 
     }
 
@@ -53,7 +71,7 @@ export class Autenticacao {
         return this.token !== undefined
     }
 
-    public async verifyToken(): Promise<IUsuario>{
+    public async verifyToken(): Promise<VerificarToken>{
        try {
             let token = localStorage.getItem('idToken');
             if (!token) {

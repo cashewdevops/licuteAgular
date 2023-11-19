@@ -23,6 +23,7 @@ import { ProdutoComponent } from './components/produto/produto.component';
 import { VitrineComponent } from './pages/vitrine/vitrine.component';
 import { ProdutoVitrineComponent } from './components/produto-vitrine/produto-vitrine.component';
 import { IndicePaginaComponent } from './components/indice-pagina/indice-pagina.component';
+import { AvisoBuscaComponent } from './components/aviso-busca/aviso-busca.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { IndicePaginaComponent } from './components/indice-pagina/indice-pagina.
     VitrineComponent,
     ProdutoVitrineComponent,
     IndicePaginaComponent,
+    AvisoBuscaComponent,
   ],
   imports: [
     BrowserModule,

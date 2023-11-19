@@ -44,7 +44,7 @@
             display: block;
             background: #DDDDDD;
             width: 30%;
-            margin: 0 35px;
+            margin: 0 60px;
             position: relative;
             border-radius: 30px;
 
@@ -165,7 +165,9 @@
         align-items: center;
 
         .devider{
-            width: 1280px;
+            // padding-left: 30px;
+            // border: 1px solid red;
+            // width: 1280px;
             display: flex;
             justify-content: flex-start;
             align-items: center;
@@ -188,7 +190,7 @@
 
             a{
                 text-decoration: none;
-                margin-right: 100px;
+                margin-right: 20px;
                 color: #000;
             }
         }

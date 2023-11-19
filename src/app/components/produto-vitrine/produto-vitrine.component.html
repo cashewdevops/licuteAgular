@@ -1,5 +1,5 @@
 <div class="container-produto">
-    <div class="card protudo" *ngFor="let produto of inputdados | slice:0:5">
+    <div class="card protudo" *ngFor="let produto of inputdados">
         <div class="container-img">
             <app-image-produto [InputImage]="produto.imagemProduto[0].img"></app-image-produto>
         </div>
