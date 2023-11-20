@@ -3,16 +3,13 @@ import { HttpClient } from "@angular/common/http";
 
 import { environment } from "src/environments/environment.development";
 import { Router } from "@angular/router";
-import { IUsuario } from "./types/Iusuario";
 import { HttpErrorResponse } from "./shared/HttpErrorResponse.model";
 import { ReponserSingIng } from "./shared/ReponserSingIng.model";
-import { VerificarToken } from "./shared/VerificarToken";
 
-interface ApiResponse {
-    token:string,
-    nome:string
-    email:string
-    status:number
+
+interface responCheckedToken {
+    status:number,
+    msg:string
 }
 
 @Injectable()
@@ -26,7 +23,7 @@ export class Autenticacao {
 
     }
 
-    public async autenticar(email:string, senha:string) {
+    async autenticar(email:string, senha:string) {
 
        try {
 
@@ -44,7 +41,7 @@ export class Autenticacao {
                 this.token = data.token
 
                 localStorage.setItem('idToken', this.token)
-                localStorage.setItem('usuario', btoa(JSON.stringify(data)))
+                localStorage.setItem('_access', btoa(JSON.stringify({ id: data.id, nome: data.nome, cpf: data.cpf, email: data.email })))
                 this.router.navigate(['/meu-acesso'])
             }
         
@@ -59,41 +56,55 @@ export class Autenticacao {
 
     }
 
-    public autenticando(): boolean{
+    async autenticando(): Promise<boolean>{
 
         if(this.token == undefined && localStorage.getItem('idToken') != null){
             const idToken = localStorage.getItem('idToken');
             if (idToken !== null) {
-                this.token = idToken;
+                if(await this.verifyToken()){
+                    this.token = idToken;
+                }
+                else{
+                    this.token!== undefined
+                }
+               
             }
         }
 
         return this.token !== undefined
     }
 
-    public async verifyToken(): Promise<VerificarToken>{
-       try {
-            let token = localStorage.getItem('idToken');
-            if (!token) {
-                token = ''
-            }
-            const headers = {
-                "Content-Type": "application/json",
-                "authorization": token
-            }
+    async verifyToken(): Promise<boolean>{
+
+           try {
+
+                let token = localStorage.getItem('idToken');
+                if (!token) {
+                    token = ''
+                }
+                const headers = {
+                    "Content-Type": "application/json",
+                    "authorization": token
+                }   
+                    
+                const response = await this.http.post(`${this.rota}/checked-token`, {}, {headers}).toPromise()
+
+                const auth = response as responCheckedToken
+
+                if(auth){
+                    if(auth.status == 200){
+                        return true
+                    }else{
+                        return false
+                    }
+                }
+                else{ 
+                    return false
+                }
             
-           return this.http.post(`${this.rota}/checked-token`, {}, {headers})
-                .toPromise()
-                .then((response:any) => response)
-                .catch()
-
-       } catch (error:any) {
-            if(error.status == 401){
-                localStorage.removeItem('idToken')
-            }
-
-            throw error
-       }
+           } catch (error) {
+                return false
+           }
     }
 
 }

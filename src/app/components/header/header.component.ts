@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Autenticacao } from 'src/app/Autenticacao.service';
-import { VerificarToken } from 'src/app/shared/VerificarToken';
+import { LicuteService } from 'src/app/licute.service';
 import { ICategoria } from 'src/app/types/ICategoria';
 import { IUsuario } from 'src/app/types/Iusuario';
 
@@ -15,25 +15,34 @@ export class HeaderComponent {
   public isLogado:boolean = false
   public Usuario:IUsuario
 
-  constructor(private autenticacao:Autenticacao){
+  constructor(private autenticacao:Autenticacao, private licute:LicuteService){
+
+    let acesso = localStorage.getItem('_access')
+    if(acesso != undefined){
+      this.Usuario = JSON.parse(atob(acesso))
+    }
 
   }
 
   ngOnInit(){
     this.checkedAutenticacao()
+    this.getCategoria()
   }
-  checkedAutenticacao(){
+ async checkedAutenticacao(){
 
-    this.autenticacao.verifyToken()
-    .then((response:VerificarToken) => {
-      if(response.usuario.nome != undefined){
-        this.isLogado = true
-        this.Usuario = response.usuario
-      }
-      this.categoria = response.categoria
+  if(this.Usuario.nome != undefined){
+      this.isLogado = true
+      this.Usuario = this.Usuario
+    }
+    
+  }
+
+  getCategoria(){
+    this.licute.getCategoria()
+    .then((response:ICategoria[]) => {
+      this.categoria = response
     })
-
-
+    .catch((erro:any) => erro)
   }
 
 

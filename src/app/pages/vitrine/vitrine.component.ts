@@ -4,6 +4,7 @@ import { Autenticacao } from 'src/app/Autenticacao.service';
 import { LicuteService } from 'src/app/licute.service';
 import { Catalogo } from 'src/app/shared/Catalogo.model';
 import { Vitrine } from 'src/app/shared/Vitrine.model';
+import { ICategoriaSelecionado } from 'src/app/types/ICategoriaSelecionado';
 
 @Component({
   selector: 'app-vitrine',
@@ -12,7 +13,7 @@ import { Vitrine } from 'src/app/shared/Vitrine.model';
 })
 export class VitrineComponent {
 
-  public categoria:Array<any> = []
+  public categoria:Array<ICategoriaSelecionado> = []
   public categoriaSeleionado:Array<any> = []
   public paginaVitrine:string
   public catalogos: Catalogo[]
@@ -52,7 +53,7 @@ export class VitrineComponent {
     let pagina = this.route.snapshot.params['qual']
     this.paginaVitrine = pagina
 
-    this.licute.getCatalogo(pagina, this.categoriaSeleionado)
+    this.licute.getCatalogoBusca(pagina, this.categoriaSeleionado)
       .then((response:Vitrine) =>{
 
         this.catalogos = response.vitrine

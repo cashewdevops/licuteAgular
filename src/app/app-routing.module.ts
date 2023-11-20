@@ -8,6 +8,8 @@ import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.co
 import { AutenticacaoServiceGuard } from './autenticacaoservice-guard.service';
 import { DetalheComponent } from './pages/detalhe/detalhe.component';
 import { VitrineComponent } from './pages/vitrine/vitrine.component';
+import { InicioComponent } from './components/usuario/inicio/inicio.component';
+import { MeusDadosComponent } from './components/usuario/meus-dados/meus-dados.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -16,7 +18,11 @@ const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'registro', component: RegistroComponent}
   ]},
-  {path: 'meu-acesso', component: PerfilUsuarioComponent, canActivate: [AutenticacaoServiceGuard]},
+  {path: 'meu-acesso', component: PerfilUsuarioComponent, canActivate: [AutenticacaoServiceGuard], children: [
+    {path: '', component: InicioComponent, canActivate: [AutenticacaoServiceGuard]},
+    {path: 'inicio', component: InicioComponent},
+    {path: 'meus-dados', component: MeusDadosComponent}
+  ]},
   {path: 'produto/:id/:descricao', component: DetalheComponent},
   {path: 'vitrine/:qual', component: VitrineComponent}
 ];

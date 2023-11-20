@@ -1,0 +1,64 @@
+@import 'variavel.scss';
+
+.container-perfil{
+    background: #fff;
+    padding: 20px;
+
+    .container-perfil{
+        display: inline-block;
+        border-radius: 5px;
+        padding: 5px;
+
+        img{
+            width: 100px;
+        }
+    }
+
+    .container-information{
+        margin-left: 17px;
+        display: inline-block;
+       
+        .nome{
+            font-weight: 700;
+            font-size: 26px;
+            color: $color-black;
+        }
+        .email{
+            font-size: 15px;
+        }
+    }
+
+    .container-cong{
+        display: inline-block;
+        margin-left: 25px;
+        li{
+            font-size: 23px;
+            color: $color-primary;
+        }
+    }
+}
+
+.titulo{
+   
+    margin-bottom: 5px;
+    li{
+        list-style: none;
+        display: inline-block;
+    }
+    span{
+        margin-left: 10px;
+    }
+}
+
+.container-resumo-pedido{
+    padding: 30px ;
+    background: #fff;
+  
+    .container-informacao_v1{
+        columns: 4;
+
+        .colunas{
+            
+        }
+    }
+}

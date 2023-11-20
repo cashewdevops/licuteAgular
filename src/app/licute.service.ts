@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { Catalogo } from './shared/Catalogo.model';
 import { Autenticacao } from './Autenticacao.service';
+import { ICategoria } from './types/ICategoria';
+import { IUsuario } from './types/Iusuario';
 
 @Injectable({
   providedIn: 'root'
@@ -11,27 +13,33 @@ export class LicuteService {
   
   private url:string = environment.API
   private token:string
-  constructor(private http: HttpClient, private autenticacao:Autenticacao) { }
+  private usuario:IUsuario
 
-  ngOnInit(){
+  constructor(private http: HttpClient, private autenticacao:Autenticacao) { 
+    
+    let token = localStorage.getItem('idToken')
+    if(token != undefined){
+      this.token = token
+    }
 
-    let locationToken = localStorage.getItem('idToken')
-
-    locationToken != undefined ? this.token = locationToken : null
+    let acesso = localStorage.getItem('_access')
+    if(acesso != undefined){
+      this.usuario = JSON.parse(atob(acesso))
+    }
 
   }
+  
 
-  async getHomePage(): Promise<Catalogo[]>{
-
-    if (!this.token) {
-      this.token = ''
-    }
+  async getCatalogo(){
 
     const headers = {
-      "authorization": this.token
+      "Content-Type": "application/json",
     }
 
-    return this.http.get(`${this.url}/catalogo`, {headers})
+  
+    const body = JSON.stringify({usuarioid: this.usuario.id})
+
+    return this.http.post(`${this.url}/catalogo`, body, {headers})
       .toPromise()
       .then((response:any) => response)
       .catch(erro => console.log(erro))
@@ -39,15 +47,25 @@ export class LicuteService {
   }
 
   
-  getCatalogo(nome:string, categoria:Array<number>): Promise<any>{
+  getCatalogoBusca(nome:string, categoria:Array<number>): Promise<any>{
 
     const headers = {
       "Content-Type": "application/json",
+      "authorization": this.token
     }
 
     const body = JSON.stringify({nome: nome, CategoriaId:categoria})
     
     return this.http.post(`${this.url}/catalogo-search`, body, {headers})
+      .toPromise()
+      .then((response:any) => response)
+      .catch(erro => erro)
+
+  }
+
+  getCategoria():Promise<ICategoria[]>{
+
+    return this.http.get(`${this.url}/categoria`)
       .toPromise()
       .then((response:any) => response)
       .catch(erro => erro)

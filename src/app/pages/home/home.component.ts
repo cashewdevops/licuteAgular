@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   
   ngOnInit(){
 
-    this.licute.getHomePage()
+    this.licute.getCatalogo()
     .then((catalogo:Catalogo[]) => {
 
       if(catalogo != undefined) this.hiddenLoading()
