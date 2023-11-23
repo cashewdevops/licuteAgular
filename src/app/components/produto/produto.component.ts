@@ -11,7 +11,7 @@ export class ProdutoComponent {
   @Input() inputdados: IProduto[]
 
   constructor(){
-    
+
   }
 
 }

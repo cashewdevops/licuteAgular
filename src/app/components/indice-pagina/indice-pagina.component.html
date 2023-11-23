@@ -1,4 +1,4 @@
 <div class="indice-pagina mt-3">
-    <strong>Você está em: <a routerLink="">Vitrine</a><span>></span><a [routerLink]="['vitrine', pagina]">{{pagina}}</a></strong> 
+    <strong>Você está em: <a routerLink="">{{pagina.rotastatica.charAt(0).toUpperCase() + pagina.rotastatica.slice(1)}}</a><span>></span><a [routerLink]="[pagina.rotastatica, pagina.rodadinamica]">{{pagina.rodadinamica}}</a></strong> 
 </div>
 <hr>

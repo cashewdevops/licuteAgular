@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="container">
-    <app-indice-pagina [pagina]="paginaVitrine"></app-indice-pagina>
+    <app-indice-pagina [pagina]="indiceRota"></app-indice-pagina>
     <div class="data" *ngIf="catalogos !== undefined">
         <section *ngFor="let catalogo of catalogos">
             <div class="titlio-oferta mt-5">{{catalogo.nome}}</div>

@@ -31,6 +31,8 @@ export class HomeComponent implements OnInit {
 
       if(catalogo != undefined) this.hiddenLoading()
 
+        console.log(catalogo)
+
         this.catalogos = catalogo
         
     })

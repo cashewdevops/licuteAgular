@@ -1,67 +1,96 @@
 <app-header></app-header>
-<!-- <div class="card page">dd</div> -->
+<!-- <app-indice-pagina [pagina]=""></app-indice-pagina> -->
 
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-6 container-image-p">
-            <div class="row">
-                <div class="card container-v-imagem">
-                    <img src="/assets/img/01.jpg" alt="">
+
+<ng-template [ngIf]="detalhe != undefined">
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-6 container-image-p">
+                <div class="row">
+                    <div class="card container-v-imagem">
+                        <img class="animate__animated animate__fadeIn" src="{{this.setImagem}}" crossorigin="anonymous">
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="card min-imagens">
+                        <img *ngFor="let image of ImagemArry" (click)="mudarImagem($event)" src="{{urlbaseImagem}}/upload/{{image.img}}" crossorigin="anonymous">
+                    </div>
                 </div>
             </div>
-            <div class="row mt-1">
-                <div class="card min-imagens">
-                    <img src="/assets/img/01.jpg" alt="">
-                    <img src="/assets/img/01.jpg" alt="">
-                    <img src="/assets/img/01.jpg" alt="">
-                    <img src="/assets/img/01.jpg" alt="">
+            <div class="col container-detalhes">
+                <div class="row">
+                    <div class="titulo-detalhe">
+                        <h4>{{detalhe.nome}}</h4>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col container-detalhes">
-            <div class="row">
-                <div class="card titulo-detalhe">
-                    <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h4>
-                </div>
-            </div>
-            <div class="row mt-2 container-precos">
-                <div class="card">
-                    <div class="preco h3">R$ 0,00</div>
-                    <div class="parcelamento">8x de R$ 399,99 sem juros</div>
-                    <div class="container-button mt-4">
-                        <button class="btn favorito"> <li class="far fa-heart"></li> Adicionar aos favoritos </button>
+                <div class="row">
+                    <div class="container-preco">
+                        <span class="preco-unidade h5">R$ 0,00</span>
+                        <span class="preco-unitario">(Preço unitario)</span>
+                    </div>
+                    <div class="quantidadeMin mt-4">
+                        Quantidade mínima: <a>50 unidades</a>
+                    </div>
+                    <div class="preceoqtd">
+                        <div class="aviso-qtd">Preço total da quantidade mínima: </div>
+                        <div class="preco h3">R$0,00</div>
+                    </div>
+                    <div class="parcelamento">
+                        <span class="bi bi-credit-card-2-back-fill incone-card"></span>
+                        <span class="parce">12x de R$ 0,00 sem juros</span>
+                    </div>
+                    <div class="container-button mt-5">
                         <button class="btn add-carrinho"><li class="fas fa-shopping-cart"></li> Adicionar ao Box</button>
+                        <button class="btn favorito"> <li class="far fa-heart"></li></button>
                     </div>
-                </div>
-            </div>
-            <div class="row container-frete mt-2">
-                <div class="card">
-                    <div class="titulo-frete">Consultar frete e prazo de entrega</div>
-                    <div class="row mt-4">
-                        <input type="text" class="form-control">
-                        <button class="btn btn-outlet mt-2" id="buscar-cep">Buscar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="row container-personalisar">
-                <div class="card"></div>
-            </div>
-        </div>
-    </div>
-    <div class="row mt-3 container-descricao">
-        <div class="card">
-            <h5>Descrição</h5>
-            <div class="descricao mt-3">
-                DESCRIÇÃO DO PRODUTO
-            </div>
 
-            <div class="destalhe-descricao mt-3">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rutrum orci non velit rutrum suscipit. Sed vel felis magna. Aliquam eleifend augue in turpis lacinia porttitor. Aenean dapibus consequat est, id dapibus leo dapibus a. Nullam placerat, sem et suscipit suscipit, est enim consectetur ex, vitae varius enim leo vitae nisl. Fusce ut nulla enim. Praesent a fermentum magna, at tincidunt nibh. Aliquam sed luctus orci, in rutrum felis. Vivamus cursus augue vel ligula luctus, sit amet pretium orci tempus. Vivamus risus dui, auctor suscipit turpis eget, viverra volutpat diam.
-                Proin congue velit orci, sit amet facilisis dui aliquam eget. Vestibulum viverra mi nec placerat iaculis. Sed id purus et lorem elementum bibendum. Sed tristique, nisi at condimentum viverra, nunc augue mattis est, quis lobortis felis velit semper elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id fermentum ex, nec commodo lectus. Fusce tempor felis non mauris posuere rhoncus. Phasellus leo erat, dictum sed orci nec, volutpat eleifend diam. Morbi gravida condimentum mattis. Sed tempor consequat enim sed feugiat. Integer ex odio, semper et fermentum bibendum, cursus ut turpis. Nunc magna dui, ornare sit amet felis nec, vestibulum consequat purus. Proin vel sagittis enim. Nulla sit amet consequat sapien, sed mattis lorem.
-                Suspendisse potenti. Fusce eu enim ac risus aliquet auctor. Phasellus vitae felis facilisis, fermentum massa ac, semper felis. Proin in ornare velit. Vivamus sodales mi vitae ex auctor, nec ultricies quam hendrerit. Fusce egestas commodo purus, eu gravida dui mattis ac. Praesent et ex sodales, feugiat diam sit amet, malesuada metus. Phasellus posuere felis neque, at vulputate tortor volutpat sed. Etiam eget risus eu mi lacinia fermentum a sit amet arcu. Nullam luctus neque sit amet justo scelerisque mattis. Integer vitae dictum mi.
+                    <div class="descricao-produto mt-4">
+                        Feito por encomenda
+                    </div>
+                    <div class="descricao-produto mt-2">
+                        <strong>10</strong> dias úteis para produção
+                    </div>
+                </div>
+
+                
+
+                <!-- <div class="row mt-2 container-precos">
+                    <div class="card">
+                        
+                    </div>
+                </div>
+                <div class="row container-frete mt-2">
+                    <div class="card">
+                        <div class="titulo-frete">Consultar frete e prazo de entrega</div>
+                        <div class="row mt-4">
+                            <input type="text" class="form-control">
+                            <button class="btn btn-outlet mt-2" id="buscar-cep">Buscar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row container-personalisar">
+                    <div class="card"></div>
+                </div> -->
+            </div>
+        </div>
+        <div class="row mt-3 container-descricao">
+            <div class="card">
+                <h5>Descrição</h5>
+                <div class="descricao mt-3">
+                    DESCRIÇÃO DO PRODUTO
+                </div>
+    
+                <div class="destalhe-descricao mt-3">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rutrum orci non velit rutrum suscipit. Sed vel felis magna. Aliquam eleifend augue in turpis lacinia porttitor. Aenean dapibus consequat est, id dapibus leo dapibus a. Nullam placerat, sem et suscipit suscipit, est enim consectetur ex, vitae varius enim leo vitae nisl. Fusce ut nulla enim. Praesent a fermentum magna, at tincidunt nibh. Aliquam sed luctus orci, in rutrum felis. Vivamus cursus augue vel ligula luctus, sit amet pretium orci tempus. Vivamus risus dui, auctor suscipit turpis eget, viverra volutpat diam.
+                    Proin congue velit orci, sit amet facilisis dui aliquam eget. Vestibulum viverra mi nec placerat iaculis. Sed id purus et lorem elementum bibendum. Sed tristique, nisi at condimentum viverra, nunc augue mattis est, quis lobortis felis velit semper elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id fermentum ex, nec commodo lectus. Fusce tempor felis non mauris posuere rhoncus. Phasellus leo erat, dictum sed orci nec, volutpat eleifend diam. Morbi gravida condimentum mattis. Sed tempor consequat enim sed feugiat. Integer ex odio, semper et fermentum bibendum, cursus ut turpis. Nunc magna dui, ornare sit amet felis nec, vestibulum consequat purus. Proin vel sagittis enim. Nulla sit amet consequat sapien, sed mattis lorem.
+                    Suspendisse potenti. Fusce eu enim ac risus aliquet auctor. Phasellus vitae felis facilisis, fermentum massa ac, semper felis. Proin in ornare velit. Vivamus sodales mi vitae ex auctor, nec ultricies quam hendrerit. Fusce egestas commodo purus, eu gravida dui mattis ac. Praesent et ex sodales, feugiat diam sit amet, malesuada metus. Phasellus posuere felis neque, at vulputate tortor volutpat sed. Etiam eget risus eu mi lacinia fermentum a sit amet arcu. Nullam luctus neque sit amet justo scelerisque mattis. Integer vitae dictum mi.
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+</ng-template>
+
 
 <app-footer></app-footer>

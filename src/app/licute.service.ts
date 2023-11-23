@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import { Catalogo } from './shared/Catalogo.model';
 import { Autenticacao } from './Autenticacao.service';
-import { ICategoria } from './types/ICategoria';
 import { IUsuario } from './types/Iusuario';
+import { Vitrine } from './shared/Vitrine.model';
+import { Categoria } from './shared/Categoria';
+import { SearchProduto } from './shared/SearchProduto';
 
 @Injectable({
   providedIn: 'root'
@@ -36,8 +37,13 @@ export class LicuteService {
       "Content-Type": "application/json",
     }
 
-  
-    const body = JSON.stringify({usuarioid: this.usuario.id})
+    let usuarioId = null
+
+    if(await this.autenticacao.autenticando() != false && this.usuario != undefined){
+      usuarioId = this.usuario.id
+    }
+    
+    const body = JSON.stringify({usuarioid: usuarioId})
 
     return this.http.post(`${this.url}/catalogo`, body, {headers})
       .toPromise()
@@ -47,14 +53,19 @@ export class LicuteService {
   }
 
   
-  getCatalogoBusca(nome:string, categoria:Array<number>): Promise<any>{
+  async getCatalogoBusca(nome:string, categoria:Array<number>): Promise<Vitrine>{
 
     const headers = {
       "Content-Type": "application/json",
-      "authorization": this.token
     }
 
-    const body = JSON.stringify({nome: nome, CategoriaId:categoria})
+    let usuarioId = null
+
+    if(await this.autenticacao.autenticando() != false && this.usuario != undefined){
+      usuarioId = this.usuario.id
+    }
+
+    const body = JSON.stringify({nome: nome, CategoriaId:categoria, usuarioId: usuarioId})
     
     return this.http.post(`${this.url}/catalogo-search`, body, {headers})
       .toPromise()
@@ -63,7 +74,7 @@ export class LicuteService {
 
   }
 
-  getCategoria():Promise<ICategoria[]>{
+  getCategoria():Promise<Categoria>{
 
     return this.http.get(`${this.url}/categoria`)
       .toPromise()
@@ -71,5 +82,30 @@ export class LicuteService {
       .catch(erro => erro)
 
   }
+
+  async searchProduto(produtoId:number, descricao:string): Promise<SearchProduto>{
+
+    const headers = {
+      "Content-Type": "application/json",
+    }
+
+    const body = JSON.stringify({
+      produtoId: produtoId,
+      descricao: descricao
+    })
+
+    let usuarioId = null
+
+    if(await this.autenticacao.autenticando() != false && this.usuario != undefined){
+      usuarioId = this.usuario.id
+    }
+
+    return this.http.post(`${this.url}/detalhe-produto`, body, {headers})
+      .toPromise()
+      .then((response:any) => response)
+      .catch((erro:any) => erro)
+
+  }
+
 
 }

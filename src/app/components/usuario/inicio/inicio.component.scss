@@ -1,4 +1,5 @@
 @import 'variavel.scss';
+@import 'fontes.scss';
 
 .container-perfil{
     background: #fff;
@@ -29,6 +30,7 @@
     }
 
     .container-cong{
+        cursor: pointer;
         display: inline-block;
         margin-left: 25px;
         li{
@@ -51,14 +53,50 @@
 }
 
 .container-resumo-pedido{
-    padding: 30px ;
+    padding: 20px ;
     background: #fff;
   
     .container-informacao_v1{
         columns: 4;
+        font-family: 'Poppins-Medium';
+        .colunas{
+            .titulo-pedido{
+                font-weight: 900;
+                color: $color-black;
+                margin-bottom: 20px;
+            }
 
+            #status-pedido{
+                font-weight: 800;
+                color: #2DC26E;
+              
+            }
+        }
+    }
+
+    .container-endereco{
+        margin-top: 30px;
+        columns: 2;
+       
         .colunas{
             
+            color: $color-black;
+            margin-bottom: 20px;
+
+            .titulo-pedido{
+                font-weight: 900;
+                font-family: 'Poppins-Medium';
+            }
+            .endereco:nth-child(2){
+                color: gray;
+                font-weight: 400;
+            }
+
+            .status-gfl{
+                font-family: 'Poppins-Medium';
+                font-weight: 800;
+                color: red;
+            }
         }
     }
 }

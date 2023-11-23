@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Autenticacao } from 'src/app/Autenticacao.service';
 import { LicuteService } from 'src/app/licute.service';
+import { Categoria } from 'src/app/shared/Categoria';
 import { ICategoria } from 'src/app/types/ICategoria';
 import { IUsuario } from 'src/app/types/Iusuario';
 
@@ -28,19 +29,22 @@ export class HeaderComponent {
     this.checkedAutenticacao()
     this.getCategoria()
   }
- async checkedAutenticacao(){
 
-  if(this.Usuario.nome != undefined){
-      this.isLogado = true
-      this.Usuario = this.Usuario
-    }
-    
+  async checkedAutenticacao(){
+
+    if(this.Usuario != undefined){
+        this.isLogado = true
+        this.Usuario = this.Usuario
+      }
+      
   }
 
   getCategoria(){
     this.licute.getCategoria()
-    .then((response:ICategoria[]) => {
-      this.categoria = response
+    .then((response:Categoria) => {
+      if(response.status == "OK"){
+        this.categoria = response.data
+      }
     })
     .catch((erro:any) => erro)
   }

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { IndiceRota } from 'src/app/shared/IndiceRota';
 
 @Component({
   selector: 'app-indice-pagina',
@@ -7,6 +8,6 @@ import { Component, Input } from '@angular/core';
 })
 export class IndicePaginaComponent {
 
-  @Input() pagina:string
+  @Input() pagina:IndiceRota
 
 }

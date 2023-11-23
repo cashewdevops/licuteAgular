@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Autenticacao } from 'src/app/Autenticacao.service';
 import { LicuteService } from 'src/app/licute.service';
 import { Catalogo } from 'src/app/shared/Catalogo.model';
+import { IndiceRota } from 'src/app/shared/IndiceRota';
 import { Vitrine } from 'src/app/shared/Vitrine.model';
 import { ICategoriaSelecionado } from 'src/app/types/ICategoriaSelecionado';
 
@@ -15,7 +16,7 @@ export class VitrineComponent {
 
   public categoria:Array<ICategoriaSelecionado> = []
   public categoriaSeleionado:Array<any> = []
-  public paginaVitrine:string
+  public indiceRota:IndiceRota
   public catalogos: Catalogo[]
 
   constructor(private licute:LicuteService, private autenticacao: Autenticacao ,private route: ActivatedRoute){
@@ -51,10 +52,11 @@ export class VitrineComponent {
   seacherCatalogo(){
 
     let pagina = this.route.snapshot.params['qual']
-    this.paginaVitrine = pagina
+
+    this.indiceRota = {rotastatica: "vitrine",rodadinamica: pagina}
 
     this.licute.getCatalogoBusca(pagina, this.categoriaSeleionado)
-      .then((response:Vitrine) =>{
+      .then((response:Vitrine) => {
 
         this.catalogos = response.vitrine
 

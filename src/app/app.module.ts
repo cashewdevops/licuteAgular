@@ -15,7 +15,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component'
 import { AutenticacaoServiceGuard } from './autenticacaoservice-guard.service';
 import { Autenticacao } from './Autenticacao.service';
-import { LoadingComponent } from './components/loading/loading.component';
 import { DetalheComponent } from './pages/detalhe/detalhe.component';
 import { BanerComponent } from './components/baner/baner.component';
 import { ImageProdutoComponent } from './components/image-produto/image-produto.component';
@@ -28,6 +27,8 @@ import { InicioComponent } from './components/usuario/inicio/inicio.component';
 import { MeusDadosComponent } from './components/usuario/meus-dados/meus-dados.component';
 import { MeuBoxComponent } from './components/usuario/meu-box/meu-box.component';
 import { MeusFavoritosComponent } from './components/usuario/meus-favoritos/meus-favoritos.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { HomePageComponent } from './components/skeleton/home-page/home-page.component';
 
 
 @NgModule({
@@ -41,7 +42,6 @@ import { MeusFavoritosComponent } from './components/usuario/meus-favoritos/meus
     LoginComponent,
     RegistroComponent,
     PerfilUsuarioComponent,
-    LoadingComponent,
     DetalheComponent,
     BanerComponent,
     ImageProdutoComponent,
@@ -54,6 +54,8 @@ import { MeusFavoritosComponent } from './components/usuario/meus-favoritos/meus
     MeusDadosComponent,
     MeuBoxComponent,
     MeusFavoritosComponent,
+    LoadingComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,

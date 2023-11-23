@@ -1,4 +1,5 @@
 @import 'variavel.scss';
+@import 'fontes.scss';
 
 .page{
     padding: 10px;
@@ -16,6 +17,13 @@
 
     .container-v-imagem{
         padding: 30px;
+        height: 500px;
+        overflow: hidden;
+        
+        img{
+            height: 100%;
+            object-fit: contain;
+        }
     }
     .container-image-p{
         margin-right: 10px;
@@ -29,6 +37,7 @@
             display: block;
             // overflow: hidden;
             img{
+                cursor: pointer;
                 margin-top: 10px;
                 margin-right: 10px;
                 margin-bottom: 10px;
@@ -36,36 +45,80 @@
                 float: left;
                 display: block;
                 width: 127px;
+                height: 120px;
             }
 
-            .next-img{
-                position: absolute;
-                z-index: 2;
-                top: 0;
-                right: 0;
-                transform: translateX(-10px)translateY(50px);
-                background: #fff;
-                border-radius: 150px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                li{
-                    color: $color-primary;
-                    font-size: 30px;
-                }
-            }
         }
     }
 
-    .container-precos{
-        .card{
-            padding: 20px;
+ 
+    .container-detalhes{
+        background: #fff;
+        border-radius: 3px;
+        .titulo-detalhe{
+            padding: 20px 15px;
+            h4{
+                font-weight: 400;
+                color: $color-black;
+            }
         }
+        .container-preco{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            .preco-unidade{
+                font-family: 'Poppins-Regular';
+                font-weight: 500;
+                color: $color-primary;
+                margin: 0;
+            }
+            .preco-unitario{
+                display: inline-block;
+                margin-left: 10px;
+                font-size: 14px;
+                color: gray;
+            }
+        }
+        .quantidadeMin{
+            font-family: 'arial';
+            color: gray;
+            font-size: 14px;
 
-        .preco{
-            font-weight: 700;
-            color: $color-primary;
+            a{
+                color: $color-primary;
+            }
+        }
+        .preceoqtd{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 0;
+            .aviso-qtd{
+                 color: gray;
+                display: inline-block;
+            }
+            .preco{
+                margin-left: 10px;
+                display: inline-block;
+                color: $color-primary;
+            }
+        }
+        .parcelamento{
+            position: relative;
+            font-size: 14px;
+            margin: 0;
+            color: gray;
+            .incone-card{
+                display: inline-block;
+                margin-right: 6px;
+                top: -8px;
+                position: absolute;
+            }
+            .parce{
+                left: 30px;
+                top: -8px;
+                position: absolute;
+            }
         }
         .container-button{
             display: flex;
@@ -76,7 +129,10 @@
             }
             .favorito{
                 margin-right: 20px;
-                width: 50%;
+                // width: 50%;
+                // font-size: 20px;
+                margin-left: 7px;
+                border: 1px solid gray;
             }
             .add-carrinho{
                 width: 50%;
@@ -84,20 +140,13 @@
                 background: $color-primary;
             }
         }
-        .parcelamento{
-            font-size: 12px;
-            color: gray;
-        }
-        
-    }
 
-    .container-detalhes{
-        .titulo-detalhe{
-            padding: 20px 15px;
-            h4{
-                font-weight: 700;
-            }
+        .descricao-produto{
+            font-size: 13px;
+            font-family: 'Poppins-Regular';
+            color: rgb(73, 73, 73);
         }
+       
     }
 
     .container-descricao{
@@ -117,27 +166,27 @@
         }
     }
 
-    .container-frete{
-        .card{
-            position: relative;
-            padding: 20px 30px;
+    // .container-frete{
+    //     .card{
+    //         position: relative;
+    //         padding: 20px 30px;
            
-            .titulo-frete{
-                left: 0;
-                top: 0;
-                transform: translateX(19px) translateY(13px);
-                position: absolute;
-            }
+    //         .titulo-frete{
+    //             left: 0;
+    //             top: 0;
+    //             transform: translateX(19px) translateY(13px);
+    //             position: absolute;
+    //         }
 
-            #buscar-cep{
-                color: $color-primary;
-                border: 1px solid $color-primary;
+    //         #buscar-cep{
+    //             color: $color-primary;
+    //             border: 1px solid $color-primary;
 
-                &:focus{
-                    background: $color-primary;
-                    color: #fff;
-                }
-            }
-        }
-    }
+    //             &:focus{
+    //                 background: $color-primary;
+    //                 color: #fff;
+    //             }
+    //         }
+    //     }
+    // }
 }

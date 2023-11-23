@@ -2,8 +2,6 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
 import { environment } from "src/environments/environment.development";
-import { Router } from "@angular/router";
-import { HttpErrorResponse } from "./shared/HttpErrorResponse.model";
 import { ReponserSingIng } from "./shared/ReponserSingIng.model";
 
 
@@ -19,40 +17,48 @@ export class Autenticacao {
     private rota:string = environment.API
   
 
-    constructor(private http:HttpClient, private router:Router){
+    constructor(private http:HttpClient, ){
+
+        let token = localStorage.getItem('idToken')
+        if(token != undefined){
+            this.token = token
+        }
 
     }
 
-    async autenticar(email:string, senha:string) {
+    async autenticar(email:string, senha:string): Promise<ReponserSingIng> {
 
-       try {
+    //    try {
 
             const headers = {
                 "Content-Type": "application/json"
             }
             const body = JSON.stringify({email: email, senha: senha})
             
-            const response = await this.http.post(`${this.rota}/user-singin`, body, { headers }).toPromise();
+            return this.http.post(`${this.rota}/user-singin`, body, { headers })
+                .toPromise()
+                .then((response:any) => response)
+                .catch(erro => erro)
             
-            const data = (response as ReponserSingIng)
+            // const data = (response as ReponserSingIng)
 
-            if(data.cpf != undefined){
+            // if(data != undefined){
 
-                this.token = data.token
+            //     this.token = data.token
 
-                localStorage.setItem('idToken', this.token)
-                localStorage.setItem('_access', btoa(JSON.stringify({ id: data.id, nome: data.nome, cpf: data.cpf, email: data.email })))
-                this.router.navigate(['/meu-acesso'])
-            }
+                // localStorage.setItem('idToken', this.token)
+                // localStorage.setItem('_access', btoa(JSON.stringify({ id: data.id, nome: data.nome, cpf: data.cpf, email: data.email })))
+                // this.router.navigate(['/meu-acesso'])
+            // }
         
-       } catch (error) {
-            const resErro = (error as HttpErrorResponse)?.status
-            if(resErro == 401){
+    //    } catch (error) {
+    //         const resErro = (error as HttpErrorResponse)?.status
+    //         if(resErro == 401){
 
-                alert('E-mail ou senha incorreto')
+    //             alert('E-mail ou senha incorreto')
 
-            }
-       }
+    //         }
+    //    }
 
     }
 

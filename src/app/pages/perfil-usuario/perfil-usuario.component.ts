@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class PerfilUsuarioComponent {
 
 
-  constructor(){
+  constructor(private router:Router){
 
   }
 
@@ -17,10 +17,10 @@ export class PerfilUsuarioComponent {
     
   }
 
-  verificarRota(){
-    
-  
-
+  sair(){
+    localStorage.removeItem('idToken')
+    localStorage.removeItem('_access')
+    this.router.navigate([''])
   }
 
   
