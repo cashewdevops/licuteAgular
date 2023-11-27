@@ -1,4 +1,4 @@
-import { IProduto } from "./IProduto"
+import { IProduto } from "../types/IProduto"
 
 
 export class Catalogo {

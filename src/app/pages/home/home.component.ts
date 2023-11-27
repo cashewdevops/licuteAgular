@@ -24,12 +24,14 @@ export class HomeComponent implements OnInit {
     this.loading = false
   }
   
-  ngOnInit(): void{
+  ngOnInit(){
 
-    this.licute.getHomePage()
+    this.licute.getCatalogo()
     .then((catalogo:Catalogo[]) => {
 
       if(catalogo != undefined) this.hiddenLoading()
+
+        console.log(catalogo)
 
         this.catalogos = catalogo
         

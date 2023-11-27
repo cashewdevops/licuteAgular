@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IProduto } from 'src/app/shared/IProduto';
+import { IProduto } from 'src/app/types/IProduto';
 
 @Component({
   selector: 'app-produto',
@@ -11,7 +11,7 @@ export class ProdutoComponent {
   @Input() inputdados: IProduto[]
 
   constructor(){
-    
+
   }
 
 }

@@ -15,12 +15,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component'
 import { AutenticacaoServiceGuard } from './autenticacaoservice-guard.service';
 import { Autenticacao } from './Autenticacao.service';
-import { LoadingComponent } from './components/loading/loading.component';
 import { DetalheComponent } from './pages/detalhe/detalhe.component';
 import { BanerComponent } from './components/baner/baner.component';
 import { ImageProdutoComponent } from './components/image-produto/image-produto.component';
 import { ProdutoComponent } from './components/produto/produto.component';
-import { ProdutosOfertaComponent } from './pages/produtos-oferta/produtos-oferta.component';
+import { VitrineComponent } from './pages/vitrine/vitrine.component';
+import { ProdutoVitrineComponent } from './components/produto-vitrine/produto-vitrine.component';
+import { IndicePaginaComponent } from './components/indice-pagina/indice-pagina.component';
+import { AvisoBuscaComponent } from './components/aviso-busca/aviso-busca.component';
+import { InicioComponent } from './components/usuario/inicio/inicio.component';
+import { MeusDadosComponent } from './components/usuario/meus-dados/meus-dados.component';
+import { MeuBoxComponent } from './components/usuario/meu-box/meu-box.component';
+import { MeusFavoritosComponent } from './components/usuario/meus-favoritos/meus-favoritos.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { HomePageComponent } from './components/skeleton/home-page/home-page.component';
+
 
 @NgModule({
   declarations: [
@@ -33,12 +42,20 @@ import { ProdutosOfertaComponent } from './pages/produtos-oferta/produtos-oferta
     LoginComponent,
     RegistroComponent,
     PerfilUsuarioComponent,
-    LoadingComponent,
     DetalheComponent,
     BanerComponent,
     ImageProdutoComponent,
     ProdutoComponent,
-    ProdutosOfertaComponent,
+    VitrineComponent,
+    ProdutoVitrineComponent,
+    IndicePaginaComponent,
+    AvisoBuscaComponent,
+    InicioComponent,
+    MeusDadosComponent,
+    MeuBoxComponent,
+    MeusFavoritosComponent,
+    LoadingComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,9 +67,5 @@ import { ProdutosOfertaComponent } from './pages/produtos-oferta/produtos-oferta
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  
-  // constructor(private autenticacao:Autenticacao){
-  //   this.autenticacao.verifyToken()
-  // }
 
 }

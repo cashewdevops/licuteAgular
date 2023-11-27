@@ -1,0 +1,60 @@
+
+@import 'variavel.scss';
+.container-produto{
+   overflow: hidden;
+}
+.protudo{
+    float: left;
+    width: 24%;
+    height: 450px;
+    cursor: pointer;
+    position: relative;
+    padding:10px 10px 20px 10px;
+    // display: inline-block; 
+    margin-left: 10px;
+    margin-bottom: 15px;
+    .container-img{
+        height: 230px;
+    }
+    .descricao{
+        word-break: keep-all;
+        overflow: hidden;
+        // border: 1px solid red;
+        height: 70px;
+        margin-top: 10px;
+        font-size: 17px;
+        font-weight: 700;
+        color: #57595e;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .preco{
+        font-family: 'Roboto-Medium';
+        font-size: 20px;
+        // font-weight: 400;
+        color: $color-second;
+    }
+    .container-avaliacao{
+        img{
+            width: 16px;
+            margin-right: 5px;
+        }
+    }
+    .tipo-pagamento{
+        font-family: 'Poppins-Regular';
+        color: #7F858D;
+        font-size: 14px;
+    }
+    .tipo-parcelado{
+        font-family: 'Poppins-Regular';
+        color: #7F858D;
+        font-size: 12px;
+    }
+    .favor{
+        position: absolute;
+        width: 50px;
+        right: 10px;
+        bottom: 0;
+        transform: translateX(-10px) translateY(-35px);
+    }
+    
+}

@@ -1,30 +1,37 @@
-.container{
-    
-    .titulo-departamento{
-        .card{
-            height: 150px;
-            border: none;
-            padding: 10px;
-    
-            .kl1{
-                height: 130px;
-                border-radius: 5px;
+.container-modal-loading{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0000008a;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .card-loadgin{
+        width: 200px;
+        
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 5px solid #FFF;
+            border-bottom-color: transparent;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
             }
-       }
-    }
+        
+            @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+            } 
 
-    .departamento-produto{
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
-        .card-produto{
-            width: 20%;
-            padding: 20px;
-            // margin: 0 5px;
-            margin: 3px;
-            height: 300px;
-            border: none;
-
-        }
     }
 }

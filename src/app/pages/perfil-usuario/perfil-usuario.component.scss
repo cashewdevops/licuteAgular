@@ -1,0 +1,52 @@
+@import 'variavel.scss';
+
+.container{
+    padding: 10px;
+    #menu-opcoes{
+        background: #fff;
+        padding: 20px 0;
+        border-radius: 5px;
+        // border: 1px solid #000;
+
+        nav{
+            ul{
+                padding: 0;
+                padding-left: 25px;
+                li{
+                    list-style: none;
+                    margin-bottom: 20px;
+                    font-size: 19px;
+                    cursor: pointer;
+
+                    span{
+                        padding: 5px 9px;
+                        border-radius: 100px;
+                        display: inline-block;
+                        margin-right: 5px;
+                        color: #000;
+                        font-size: 21px;
+                    }
+
+                    &:hover{
+                       
+                        font-weight: 600;
+                    }
+                }
+
+                
+                .activate{
+                    font-weight: 600;
+                    span{
+                        background: $color-primary;
+                        color: #fff;
+                    }
+
+                }
+            }
+        }
+    }
+    #container-view{
+        margin-left: 10px;
+        // border: 1px solid green;
+    }
+}

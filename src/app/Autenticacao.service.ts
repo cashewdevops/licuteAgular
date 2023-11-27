@@ -2,11 +2,12 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
 import { environment } from "src/environments/environment.development";
-import { Router } from "@angular/router";
+import { ReponserSingIng } from "./shared/ReponserSingIng.model";
 
-interface ApiResponse {
-    token:string,
-    status:number
+
+interface responCheckedToken {
+    status:number,
+    msg:string
 }
 
 @Injectable()
@@ -16,74 +17,100 @@ export class Autenticacao {
     private rota:string = environment.API
   
 
-    constructor(private http:HttpClient, private router:Router){
+    constructor(private http:HttpClient, ){
 
-    }
-
-    public async autenticar(email:string, senha:string) {
-
-        const headers = {
-            "Content-Type": "application/json"
+        let token = localStorage.getItem('idToken')
+        if(token != undefined){
+            this.token = token
         }
-        const body = JSON.stringify({email: email, senha: senha})
-        
-        const response = await this.http.post(`${this.rota}/user-singin`, body, { headers }).toPromise();
-        
-        // const status = (response as ApiResponse)?.status
-
-        // if(status == 200){
-        //     this.token = (response as ApiResponse)?.token
-        //     localStorage.setItem('idToken', this.token)
-        //     this.router.navigate(['/meu-acesso'])
-        // }
-       
 
     }
 
-    public autenticando(): boolean{
+    async autenticar(email:string, senha:string): Promise<ReponserSingIng> {
+
+    //    try {
+
+            const headers = {
+                "Content-Type": "application/json"
+            }
+            const body = JSON.stringify({email: email, senha: senha})
+            
+            return this.http.post(`${this.rota}/user-singin`, body, { headers })
+                .toPromise()
+                .then((response:any) => response)
+                .catch(erro => erro)
+            
+            // const data = (response as ReponserSingIng)
+
+            // if(data != undefined){
+
+            //     this.token = data.token
+
+                // localStorage.setItem('idToken', this.token)
+                // localStorage.setItem('_access', btoa(JSON.stringify({ id: data.id, nome: data.nome, cpf: data.cpf, email: data.email })))
+                // this.router.navigate(['/meu-acesso'])
+            // }
+        
+    //    } catch (error) {
+    //         const resErro = (error as HttpErrorResponse)?.status
+    //         if(resErro == 401){
+
+    //             alert('E-mail ou senha incorreto')
+
+    //         }
+    //    }
+
+    }
+
+    async autenticando(): Promise<boolean>{
 
         if(this.token == undefined && localStorage.getItem('idToken') != null){
             const idToken = localStorage.getItem('idToken');
             if (idToken !== null) {
-                this.token = idToken;
+                if(await this.verifyToken()){
+                    this.token = idToken;
+                }
+                else{
+                    this.token!== undefined
+                }
+               
             }
         }
 
         return this.token !== undefined
     }
 
-    public async verifyToken(){
+    async verifyToken(): Promise<boolean>{
 
-       try {
+           try {
 
-            let token = localStorage.getItem('idToken');
+                let token = localStorage.getItem('idToken');
+                if (!token) {
+                    token = ''
+                }
+                const headers = {
+                    "Content-Type": "application/json",
+                    "authorization": token
+                }   
+                    
+                const response = await this.http.post(`${this.rota}/checked-token`, {}, {headers}).toPromise()
 
-            if (!token) {
-                token = ''
-            }
+                const auth = response as responCheckedToken
 
-
-            const headers = {
-                "Content-Type": "application/json",
-                "authorization": token
-            }
-
-
-
-            const responseToken = await this.http.post(`${this.rota}/checked-token`, {}, {headers}).toPromise()
-
-           
-       } catch (error:any) {
-        
-            if(error.status == 401){
-                
-                localStorage.removeItem('idToken')
-
-            }
-
-       }
-        
-
+                if(auth){
+                    if(auth.status == 200){
+                        return true
+                    }else{
+                        return false
+                    }
+                }
+                else{ 
+                    return false
+                }
+            
+           } catch (error) {
+                return false
+           }
     }
 
 }

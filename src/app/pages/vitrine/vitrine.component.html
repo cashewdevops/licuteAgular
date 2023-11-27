@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="container">
+    <app-indice-pagina [pagina]="indiceRota"></app-indice-pagina>
+    <div class="data" *ngIf="catalogos !== undefined">
+        <section *ngFor="let catalogo of catalogos">
+            <div class="titlio-oferta mt-5">{{catalogo.nome}}</div>
+            <div class="mt-2 container-produto-filtro">
+                <div class="card" id="filtro">
+                    <div class="row">
+                        <div class="titulo-filtro">Categorias</div>
+                        <div class="checkeds" *ngIf="categoria != undefined">
+
+                            <div class="form-check" *ngFor="let catego of categoria">
+                                <input (click)="isFiltro($event)" class="form-check-input" type="checkbox" value="{{catego.id}}" id="flexCheckDefault" [checked]="catego.checked">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                  {{catego.nome}}
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="produtos" >
+                    <div *ngIf="catalogo.has.length == 0">
+                        <app-aviso-busca></app-aviso-busca>
+                    </div>
+                    <app-produto-vitrine *ngIf="catalogo.has.length != 0" [inputdados]="catalogo.has" ></app-produto-vitrine>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<app-footer></app-footer>

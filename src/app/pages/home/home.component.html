@@ -1,5 +1,5 @@
 <app-header></app-header>
-<app-loading [showLoading]="loading" ></app-loading>
+<app-home-page [showLoading]="loading" ></app-home-page>
 
 <div class="container" *ngIf="catalogos !== undefined" >
 
@@ -13,9 +13,8 @@
         </div>
 
         <div class="row mt-5" id="container-detaque" *ngIf="catalogo.isbaner">
-            <app-baner [InputImagemBaner]="catalogo.img"></app-baner>
+            <app-baner [InputImagemBaner]="catalogo"></app-baner>
         </div>
-
 
         <section *ngIf="!catalogo.isbaner" class="container-card-produto">
         
@@ -23,17 +22,6 @@
 
         </section>
         
-
-
-        
     </div>
-    <!-- 
-    
-    <div class="row mt-1" id="container-detaque" >
-        <img *ngFor="let ban of catalogo.destaques.bander" [src]="ban.url">
-    </div>
-    
-     -->
-    
 </div>
 <app-footer></app-footer>

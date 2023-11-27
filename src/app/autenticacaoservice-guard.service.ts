@@ -1,4 +1,4 @@
-import { CanActivate } from "@angular/router";
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from "@angular/router";
 import { Autenticacao } from "./Autenticacao.service";
 import { Injectable } from "@angular/core";
 
@@ -6,11 +6,20 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class AutenticacaoServiceGuard implements CanActivate {
 
-    constructor(private autenticacao:Autenticacao){
+    constructor(private autenticacao:Autenticacao, private router: Router){
 
     }
 
-    canActivate():boolean{
-        return this.autenticacao.autenticando()
+   async canActivate(
+        next:ActivatedRouteSnapshot,
+        state: RouterStateSnapshot
+    ):Promise<boolean>{
+
+        if(await this.autenticacao.autenticando()){
+            return true 
+        }else{
+            this.router.navigate([''])
+            return false
+        }
     }
 } 
