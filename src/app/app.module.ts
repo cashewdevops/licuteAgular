@@ -51,8 +51,8 @@ import { ProdutosOfertaComponent } from './pages/produtos-oferta/produtos-oferta
 })
 export class AppModule {
   
-  constructor(private autenticacao:Autenticacao){
-    this.autenticacao.verifyToken()
-  }
+  // constructor(private autenticacao:Autenticacao){
+  //   this.autenticacao.verifyToken()
+  // }
 
 }
