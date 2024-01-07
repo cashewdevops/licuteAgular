@@ -29,6 +29,8 @@ import { MeuBoxComponent } from './components/usuario/meu-box/meu-box.component'
 import { MeusFavoritosComponent } from './components/usuario/meus-favoritos/meus-favoritos.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { HomePageComponent } from './components/skeleton/home-page/home-page.component';
+import { FavoritoComponent } from './components/usuario/favorito/favorito.component';
+import { ProdutoFavoritoComponent } from './components/produto-favorito/produto-favorito.component';
 
 
 @NgModule({
@@ -56,6 +58,8 @@ import { HomePageComponent } from './components/skeleton/home-page/home-page.com
     MeusFavoritosComponent,
     LoadingComponent,
     HomePageComponent,
+    FavoritoComponent,
+    ProdutoFavoritoComponent,
   ],
   imports: [
     BrowserModule,

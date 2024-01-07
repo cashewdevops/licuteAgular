@@ -18,7 +18,10 @@
       </div>
 
       <div id="container-opcoes">
-        <button id="favorito"><div class="indicator">0</div><img src="/assets/img/coracao-fav.svg">Favorito</button>
+        <button id="favorito" [routerLink]="['/meu-acesso/favoritos']">
+          <div *ngIf="isLogado" class="indicator">{{qtdFavorito}}</div>
+          <img  src="/assets/img/coracao-fav.svg">Favorito
+        </button>
         <button id="box"> <img src="/assets/img/box.svg"> Box</button>
       </div>
     </div>

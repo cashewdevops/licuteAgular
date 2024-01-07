@@ -1,0 +1,12 @@
+
+<div class="container-favorito">
+    <div class="titulo"> <span class="bi bi-suit-heart-fill me-2"></span>Favoritos</div>
+</div>
+
+<div class="mt-1">
+
+    <div *ngFor="let produto of data" >
+        <app-produto-favorito [inputPedito]="produto" ></app-produto-favorito>
+    </div>
+
+</div>

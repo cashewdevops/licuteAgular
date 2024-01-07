@@ -1,0 +1,39 @@
+<div class="produto-favorito mt-1">
+    <span *ngIf="inputPedito.imagem == null; else showimagem" class="container-imagem">
+        <div class="container-no-imagem"><i id="incone" class="bi bi-camera"></i></div>
+    </span>
+
+    <ng-template #showimagem>
+        <div class="container-imagem">
+            <img src="{{url}}/upload/{{inputPedito.imagem}}" id="imagem-favorito" crossorigin="anonymous">
+        </div>
+    </ng-template>
+
+    <span class="container-informations ms-3 ">
+        <div class="detalhe">
+            <div class="titulo-favorito-produto">{{inputPedito.titulo}}</div>
+            <div class="avaliacao">
+                <img class="me-1" src="/assets/img/estrela-vazia.svg" width="20px">
+                <img class="me-1" src="/assets/img/estrela-vazia.svg" width="20px">
+                <img class="me-1" src="/assets/img/estrela-vazia.svg" width="20px">
+                <img class="me-1" src="/assets/img/estrela-vazia.svg" width="20px">
+                <img class="me-1" src="/assets/img/estrela-vazia.svg" width="20px">
+                
+            </div>
+            <div class="preco mt-2" *ngIf="inputPedito.preco != ''; else showPreco ">
+                R$:{{inputPedito.preco}}
+            </div>
+
+            <ng-template #showPreco>
+                <div class="preco">R$: 00,00</div>
+            </ng-template>
+
+        </div>
+
+        <div class="container-favorito">
+            <img src="/assets/img/fav-not-select.svg" width="50px">
+            <button class="btn btn-licute" id="comprar">Comprar</button>
+        </div>
+
+    </span>
+</div>

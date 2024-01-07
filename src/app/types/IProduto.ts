@@ -7,5 +7,6 @@ export interface IProduto {
     descricao:string
     preco:number
     ativado:boolean
+    favoritado:boolean
     imagemProduto:Array<IImagemProduto>
 }

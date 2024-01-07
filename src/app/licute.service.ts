@@ -6,6 +6,8 @@ import { IUsuario } from './types/Iusuario';
 import { Vitrine } from './shared/Vitrine.model';
 import { Categoria } from './shared/Categoria';
 import { SearchProduto } from './shared/SearchProduto';
+import { IReponseHttp } from './types/IRespondeHttp';
+
 
 @Injectable({
   providedIn: 'root'
@@ -105,6 +107,70 @@ export class LicuteService {
       .then((response:any) => response)
       .catch((erro:any) => erro)
 
+  }
+
+  async addfavorito(produtoId:number): Promise<IReponseHttp>{
+
+    const headers = {
+      "Content-Type": "application/json",
+    }
+
+    let usuarioId = null
+
+    if(await this.autenticacao.autenticando() != false && this.usuario != undefined){
+      usuarioId = this.usuario.id
+    }
+ 
+    const body = JSON.stringify({
+      produtoId:produtoId,
+      usuarioId:usuarioId
+    })
+
+    return this.http.post(`${this.url}/favorito-add`, body, {headers} )
+      .toPromise()
+      .then((response:any) => response)
+      .catch((erro:any) => erro)
+
+  }
+
+
+  async getFavorito(){
+
+    const headers = {
+      "Content-Type": "application/json",
+    }
+
+    let usuarioId = null
+
+    if(await this.autenticacao.autenticando() != false && this.usuario != undefined){
+      usuarioId = this.usuario.id
+    }
+ 
+    const body = JSON.stringify({
+      usuarioId:usuarioId
+    })
+
+    return this.http.post(`${this.url}/favorito`, body, {headers})
+      .toPromise()
+      .then((response:any) => response)
+      .catch((erro:Error) => erro)
+
+  }
+
+  async favoritos(): Promise<IReponseHttp> {
+
+    const headers = {
+      "Content-Type": "application/json",
+    }
+
+    const body = JSON.stringify({
+      usuarioId: this.usuario.id
+    })
+
+    return this.http.post(`${this.url}/favoritos`, body, {headers})
+    .toPromise()
+      .then((response:any) => response)
+      .catch((erro:Error) => erro)
   }
 
 

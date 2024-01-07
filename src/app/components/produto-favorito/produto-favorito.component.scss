@@ -1,0 +1,68 @@
+@import 'variavel.scss';
+@import 'button.scss';
+
+
+.produto-favorito{
+    background: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    .titulo-favorito-produto{
+        font-size: 1.3em;
+    }
+}
+
+.container-informations{
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    .detalhe{
+        float: left;
+        .preco{
+            font-size: 1.2em;
+            font-weight: 500;
+            color: rgb(172, 172, 172);
+        }
+
+        .titulo{
+            // border: 1px solid red;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 600px;
+        }
+    }
+
+    .container-favorito{
+        float: right;
+    }
+}
+
+.container-no-imagem{
+    width: 120px;
+    border-radius: 3px;
+    height: 100px;
+    background: rgb(201, 201, 201);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#incone{
+    font-size: 40px;
+    color: rgb(172, 172, 172);
+}
+
+#comprar{
+    width: 200px;
+}
+
+#imagem-favorito{
+    width: 120px;
+    height: 100px;
+    border-radius: 2px;
+    object-fit: cover;
+}
