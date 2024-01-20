@@ -26,54 +26,26 @@
                 </div>
                 <div class="row">
                     <div class="container-preco">
-                        <span class="preco-unidade h5">R$ 0,00</span>
+                        <span class="preco-unidade h5">R$ {{detalhe.preco}}</span>
                         <span class="preco-unitario">(Preço unitario)</span>
                     </div>
-                    <div class="quantidadeMin mt-4">
-                        Quantidade mínima: <a>50 unidades</a>
+                    <div class="quantidadeMin mt-2">
+                        Quantidade mínima: <a>{{detalhe.qtd_min}} unidades</a>
                     </div>
                     <div class="preceoqtd">
                         <div class="aviso-qtd">Preço total da quantidade mínima: </div>
-                        <div class="preco h3">R$0,00</div>
+                        <div class="preco h3">R${{detalhe.qtd_min * detalhe.preco}}</div>
                     </div>
                     <div class="parcelamento">
                         <span class="bi bi-credit-card-2-back-fill incone-card"></span>
                         <span class="parce">12x de R$ 0,00 sem juros</span>
                     </div>
-                    <div class="container-button mt-5">
+                    <div class="container-button mt-4">
                         <button class="btn add-carrinho"><li class="fas fa-shopping-cart"></li> Adicionar ao Box</button>
                         <button class="btn favorito"> <li class="far fa-heart"></li></button>
                     </div>
-<<<<<<< HEAD
-                </div>
-            </div>
-            <div class="row container-frete mt-2">
-                <div class="card">
-                    <div class="titulo-frete">Consultar frete e prazo de entrega</div>
-                    <div class="row mt-4">
-                        <input type="text" class="form-control">
-                        <button class="btn btn-outlet mt-2" id="buscar-cep">Buscar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="row container-personalisar">
-                <div class="card"></div>
-            </div>
-        </div>
-    </div>
-    <div class="row mt-3 container-descricao">
-        <div class="card">
-            <h5>Descrição</h5>
-            <div class="descricao mt-3">
-                DESCRIÇÃO DO PRODUTO
-            </div>
-            <div class="destalhe-descricao mt-3">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rutrum orci non velit rutrum suscipit. Sed vel felis magna. Aliquam eleifend augue in turpis lacinia porttitor. Aenean dapibus consequat est, id dapibus leo dapibus a. Nullam placerat, sem et suscipit suscipit, est enim consectetur ex, vitae varius enim leo vitae nisl. Fusce ut nulla enim. Praesent a fermentum magna, at tincidunt nibh. Aliquam sed luctus orci, in rutrum felis. Vivamus cursus augue vel ligula luctus, sit amet pretium orci tempus. Vivamus risus dui, auctor suscipit turpis eget, viverra volutpat diam.
-                Proin congue velit orci, sit amet facilisis dui aliquam eget. Vestibulum viverra mi nec placerat iaculis. Sed id purus et lorem elementum bibendum. Sed tristique, nisi at condimentum viverra, nunc augue mattis est, quis lobortis felis velit semper elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id fermentum ex, nec commodo lectus. Fusce tempor felis non mauris posuere rhoncus. Phasellus leo erat, dictum sed orci nec, volutpat eleifend diam. Morbi gravida condimentum mattis. Sed tempor consequat enim sed feugiat. Integer ex odio, semper et fermentum bibendum, cursus ut turpis. Nunc magna dui, ornare sit amet felis nec, vestibulum consequat purus. Proin vel sagittis enim. Nulla sit amet consequat sapien, sed mattis lorem.
-                Suspendisse potenti. Fusce eu enim ac risus aliquet auctor. Phasellus vitae felis facilisis, fermentum massa ac, semper felis. Proin in ornare velit. Vivamus sodales mi vitae ex auctor, nec ultricies quam hendrerit. Fusce egestas commodo purus, eu gravida dui mattis ac. Praesent et ex sodales, feugiat diam sit amet, malesuada metus. Phasellus posuere felis neque, at vulputate tortor volutpat sed. Etiam eget risus eu mi lacinia fermentum a sit amet arcu. Nullam luctus neque sit amet justo scelerisque mattis. Integer vitae dictum mi.
-=======
 
-                    <div class="descricao-produto mt-4">
+                    <div class="descricao-produto mt-3">
                         Feito por encomenda
                     </div>
                     <div class="descricao-produto mt-2">
@@ -114,7 +86,6 @@
                     Proin congue velit orci, sit amet facilisis dui aliquam eget. Vestibulum viverra mi nec placerat iaculis. Sed id purus et lorem elementum bibendum. Sed tristique, nisi at condimentum viverra, nunc augue mattis est, quis lobortis felis velit semper elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id fermentum ex, nec commodo lectus. Fusce tempor felis non mauris posuere rhoncus. Phasellus leo erat, dictum sed orci nec, volutpat eleifend diam. Morbi gravida condimentum mattis. Sed tempor consequat enim sed feugiat. Integer ex odio, semper et fermentum bibendum, cursus ut turpis. Nunc magna dui, ornare sit amet felis nec, vestibulum consequat purus. Proin vel sagittis enim. Nulla sit amet consequat sapien, sed mattis lorem.
                     Suspendisse potenti. Fusce eu enim ac risus aliquet auctor. Phasellus vitae felis facilisis, fermentum massa ac, semper felis. Proin in ornare velit. Vivamus sodales mi vitae ex auctor, nec ultricies quam hendrerit. Fusce egestas commodo purus, eu gravida dui mattis ac. Praesent et ex sodales, feugiat diam sit amet, malesuada metus. Phasellus posuere felis neque, at vulputate tortor volutpat sed. Etiam eget risus eu mi lacinia fermentum a sit amet arcu. Nullam luctus neque sit amet justo scelerisque mattis. Integer vitae dictum mi.
                 </div>
->>>>>>> 428e2bf52180ab34fa84feb41c68d195c8758850
             </div>
         </div>
     </div>

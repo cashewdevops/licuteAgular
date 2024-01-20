@@ -34,9 +34,13 @@ export class DetalheComponent {
     if(produtoIdRoute != null && descricaoIdRoute != null){
       this.licuteService.searchProduto(parseInt(produtoIdRoute), descricaoIdRoute)
       .then((response:SearchProduto) => {
+        console.log(response.data)
         this.detalhe = response.data
-        this.ImagemArry = response.data.imagemProduto
-        this.setImagem = `${this.urlbaseImagem}/upload/${this.ImagemArry[0].img}`
+        if(response.data.imagemProduto.length){
+          this.ImagemArry = response.data.imagemProduto
+          this.setImagem = `${this.urlbaseImagem}/upload/${this.ImagemArry[0].img}`
+        }
+        
 
       })
       .catch((erro:any) => console.log(erro))
