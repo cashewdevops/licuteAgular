@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
 import { environment } from "src/environments/environment.development";
-import { ReponserSingIng } from "./shared/ReponserSingIng.model";
+import { ReponserSingIng } from "../shared/ReponserSingIng.model";
 
 
 interface responCheckedToken {
@@ -28,7 +28,6 @@ export class Autenticacao {
 
     async autenticar(email:string, senha:string): Promise<ReponserSingIng> {
 
-    //    try {
 
             const headers = {
                 "Content-Type": "application/json"
@@ -40,25 +39,6 @@ export class Autenticacao {
                 .then((response:any) => response)
                 .catch(erro => erro)
             
-            // const data = (response as ReponserSingIng)
-
-            // if(data != undefined){
-
-            //     this.token = data.token
-
-                // localStorage.setItem('idToken', this.token)
-                // localStorage.setItem('_access', btoa(JSON.stringify({ id: data.id, nome: data.nome, cpf: data.cpf, email: data.email })))
-                // this.router.navigate(['/meu-acesso'])
-            // }
-        
-    //    } catch (error) {
-    //         const resErro = (error as HttpErrorResponse)?.status
-    //         if(resErro == 401){
-
-    //             alert('E-mail ou senha incorreto')
-
-    //         }
-    //    }
 
     }
 

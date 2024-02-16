@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { LicuteService } from 'src/app/licute.service';
-import { SharedService } from 'src/app/shared.service';
+import { LicuteService } from 'src/app/services/licute.service';
+import { SharedService } from 'src/app/services/shared.service';
 import { IProduto } from 'src/app/types/IProduto';
-import { IReponseHttp } from 'src/app/types/IRespondeHttp';
+import { IReponse } from 'src/app/types/IReponse';
 
 
 @Component({
@@ -30,7 +30,7 @@ export class ProdutoComponent {
       response.favoritado = true
 
       this.licite.addfavorito(id)
-      .then((response:IReponseHttp) => {
+      .then((response:IReponse) => {
         if(response.status == "OK"){
           this.sharedService.triggerUpdateHeader();
         }else{

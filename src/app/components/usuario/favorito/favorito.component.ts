@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { LicuteService } from 'src/app/licute.service';
+import { LicuteService } from 'src/app/services/licute.service';
 import { IFavoritos } from 'src/app/types/IFavoritos';
-import { IReponseHttp } from 'src/app/types/IRespondeHttp';
+import { IReponse } from 'src/app/types/IReponse';
 
 @Component({
   selector: 'app-favorito',
@@ -22,7 +22,7 @@ export class FavoritoComponent {
 
   favoritos(){
     this.licute.favoritos()
-    .then((response:IReponseHttp) => {
+    .then((response:IReponse) => {
       if(response.status == "OK"){
         this.data = response.data
       }

@@ -8,5 +8,6 @@ export interface IProduto {
     preco:number
     ativado:boolean
     favoritado:boolean
+    precoTotalQtdMin:number
     imagemProduto:Array<IImagemProduto>
 }

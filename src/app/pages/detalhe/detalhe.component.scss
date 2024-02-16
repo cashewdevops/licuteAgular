@@ -1,5 +1,7 @@
 @import 'variavel.scss';
 @import 'fontes.scss';
+@import 'button.scss';
+@import 'global.scss';
 
 .page{
     padding: 10px;
@@ -22,7 +24,7 @@
         
         img{
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
         }
     }
     .container-image-p{
@@ -44,8 +46,8 @@
                 // margin: 6px 2px;
                 float: left;
                 display: block;
-                width: 127px;
-                height: 120px;
+                width: 100px;
+                height: 100px;
             }
 
         }
@@ -56,6 +58,7 @@
         background: #fff;
         border-radius: 3px;
         padding: 0 30px;
+        height: 360px;
         .titulo-detalhe{
             padding: 20px 0px;
             h4{
@@ -175,27 +178,12 @@
         }
     }
 
-    // .container-frete{
-    //     .card{
-    //         position: relative;
-    //         padding: 20px 30px;
-           
-    //         .titulo-frete{
-    //             left: 0;
-    //             top: 0;
-    //             transform: translateX(19px) translateY(13px);
-    //             position: absolute;
-    //         }
+    .container-frete{
+        border-radius: 3px;
+        background: rgb(255, 255, 255);
+        padding: 10px;
+        
+    }
 
-    //         #buscar-cep{
-    //             color: $color-primary;
-    //             border: 1px solid $color-primary;
-
-    //             &:focus{
-    //                 background: $color-primary;
-    //                 color: #fff;
-    //             }
-    //         }
-    //     }
-    // }
+   
 }

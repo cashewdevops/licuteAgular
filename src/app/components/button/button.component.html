@@ -1,0 +1,5 @@
+<button *ngIf="!isLoading; else loading" (click)="OutEnventClick()" class="btn btn-licute w-100 ms-2">OK</button>
+
+<ng-template #loading>
+    <button disabled (click)="OutEnventClick()" class="btn btn-licute w-100 ms-2"> <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></button>
+</ng-template>

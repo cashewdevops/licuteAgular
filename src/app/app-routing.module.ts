@@ -5,7 +5,7 @@ import { AcessoComponent } from './pages/acesso/acesso.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
-import { AutenticacaoServiceGuard } from './autenticacaoservice-guard.service';
+import { AutenticacaoServiceGuard } from './services/autenticacaoservice-guard.service';
 import { DetalheComponent } from './pages/detalhe/detalhe.component';
 import { VitrineComponent } from './pages/vitrine/vitrine.component';
 import { InicioComponent } from './components/usuario/inicio/inicio.component';

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LicuteService } from 'src/app/licute.service';
+import { LicuteService } from 'src/app/services/licute.service';
 import { Catalogo } from 'src/app/shared/Catalogo.model';
 import { environment } from 'src/environments/environment.development';
 

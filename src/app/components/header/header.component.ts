@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Autenticacao } from 'src/app/Autenticacao.service';
-import { LicuteService } from 'src/app/licute.service';
-import { SharedService } from 'src/app/shared.service';
+import { Autenticacao } from 'src/app/services/Autenticacao.service';
+import { LicuteService } from 'src/app/services/licute.service';
+import { SharedService } from 'src/app/services/shared.service';
 import { Categoria } from 'src/app/shared/Categoria';
 import { ICategoria } from 'src/app/types/ICategoria';
-import { IReponseHttp } from 'src/app/types/IRespondeHttp';
+import { IReponse } from 'src/app/types/IReponse';
 import { IUsuario } from 'src/app/types/Iusuario';
 
 @Component({
@@ -66,7 +66,7 @@ export class HeaderComponent {
   getFavorito(){
 
     this.licute.getFavorito()
-    .then((response:IReponseHttp) => {
+    .then((response:IReponse) => {
       if(response.status == "OK"){
         this.qtdFavorito = response.data
       }

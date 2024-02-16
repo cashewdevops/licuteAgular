@@ -2,7 +2,7 @@ import { Component, Injectable } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { Autenticacao } from 'src/app/Autenticacao.service';
+import { Autenticacao } from 'src/app/services/Autenticacao.service';
 import { ReponserSingIng } from 'src/app/shared/ReponserSingIng.model';
 
 @Component({

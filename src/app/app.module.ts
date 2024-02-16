@@ -13,8 +13,8 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component'
-import { AutenticacaoServiceGuard } from './autenticacaoservice-guard.service';
-import { Autenticacao } from './Autenticacao.service';
+import { AutenticacaoServiceGuard } from './services/autenticacaoservice-guard.service';
+import { Autenticacao } from './services/Autenticacao.service';
 import { DetalheComponent } from './pages/detalhe/detalhe.component';
 import { BanerComponent } from './components/baner/baner.component';
 import { ImageProdutoComponent } from './components/image-produto/image-produto.component';
@@ -31,6 +31,8 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { HomePageComponent } from './components/skeleton/home-page/home-page.component';
 import { FavoritoComponent } from './components/usuario/favorito/favorito.component';
 import { ProdutoFavoritoComponent } from './components/produto-favorito/produto-favorito.component';
+import { ShowFreteComponent } from './components/show-frete/show-frete.component';
+import { ButtonComponent } from './components/button/button.component';
 
 
 @NgModule({
@@ -60,6 +62,8 @@ import { ProdutoFavoritoComponent } from './components/produto-favorito/produto-
     HomePageComponent,
     FavoritoComponent,
     ProdutoFavoritoComponent,
+    ShowFreteComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,

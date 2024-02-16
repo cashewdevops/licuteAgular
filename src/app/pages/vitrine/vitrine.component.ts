@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Autenticacao } from 'src/app/Autenticacao.service';
-import { LicuteService } from 'src/app/licute.service';
+import { Autenticacao } from 'src/app/services/Autenticacao.service';
+import { LicuteService } from 'src/app/services/licute.service';
 import { Catalogo } from 'src/app/shared/Catalogo.model';
 import { IndiceRota } from 'src/app/shared/IndiceRota';
 import { Vitrine } from 'src/app/shared/Vitrine.model';

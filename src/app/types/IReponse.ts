@@ -1,5 +1,5 @@
 
-export interface IReponseHttp{
+export interface IReponse{
     status:string,
     data:any
     mensage:string

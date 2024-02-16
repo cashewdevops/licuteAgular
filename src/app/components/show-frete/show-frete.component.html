@@ -1,0 +1,12 @@
+<div *ngIf="isModalCep" class="container-frete">
+    <div class="card d-flex flex-sm-row position-relative">
+        <i (click)="OutClose()" class="bi bi-x-lg icon-close position-absolute top-0 end-0 me-2 mt-2 pb-2"></i>
+        <div class="container-imagem me-sm-4"><img src="/assets/img/icons8-não-deixe-cair-80.png"></div>
+        <div class="container-informacao w-100">
+            <div class="titulo">Resultado da Busca</div>
+            <ul class="list-group mt-3">
+                <li class="list-group-item d-flex justify-content-between align-items-center ">Entrega Padrão: <div class="container-tempo-preco"><div class="preco"><strong>R$ 34,00</strong></div><div class="dias">até 13 dias úteis</div></div></li>
+              </ul>
+        </div>
+    </div>
+</div>

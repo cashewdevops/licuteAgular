@@ -2,11 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { Autenticacao } from './Autenticacao.service';
-import { IUsuario } from './types/Iusuario';
-import { Vitrine } from './shared/Vitrine.model';
-import { Categoria } from './shared/Categoria';
-import { SearchProduto } from './shared/SearchProduto';
-import { IReponseHttp } from './types/IRespondeHttp';
+import { IUsuario } from '../types/Iusuario';
+import { Vitrine } from '../shared/Vitrine.model';
+import { Categoria } from '../shared/Categoria';
+import { IReponse } from '../types/IReponse';
 
 
 @Injectable({
@@ -85,7 +84,7 @@ export class LicuteService {
 
   }
 
-  async searchProduto(produtoId:number, descricao:string): Promise<SearchProduto>{
+  async searchProduto(produtoId:number, descricao:string): Promise<IReponse>{
 
     const headers = {
       "Content-Type": "application/json",
@@ -109,7 +108,7 @@ export class LicuteService {
 
   }
 
-  async addfavorito(produtoId:number): Promise<IReponseHttp>{
+  async addfavorito(produtoId:number): Promise<IReponse>{
 
     const headers = {
       "Content-Type": "application/json",
@@ -157,7 +156,7 @@ export class LicuteService {
 
   }
 
-  async favoritos(): Promise<IReponseHttp> {
+  async favoritos(): Promise<IReponse> {
 
     const headers = {
       "Content-Type": "application/json",
