@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ShowFreteComponent {
 
+  @Input() animate:string
   @Input() isModalCep:boolean
   @Output() isCloseModel = new EventEmitter<any>()
 

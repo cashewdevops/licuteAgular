@@ -172,5 +172,21 @@ export class LicuteService {
       .catch((erro:Error) => erro)
   }
 
+  async calculoFrete(frete:string): Promise<IReponse> {
+
+
+    const headers = {
+      "Content-Type": "application/json",
+    }
+
+    const body = JSON.stringify({frete: frete})
+
+    return this.http.post(`${this.url}/request/frete`, body, {headers})
+      .toPromise()
+      .then((response:any) => response)
+      .catch((erro:Error) => erro)  
+
+  }
+
 
 }

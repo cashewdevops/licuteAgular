@@ -1,6 +1,6 @@
 <app-header></app-header>
 <!-- <app-indice-pagina [pagina]=""></app-indice-pagina> -->
-<app-show-frete [isModalCep]="isModal" (isCloseModel)="hiddenModal()" ></app-show-frete>
+<app-show-frete [isModalCep]="isModal" (isCloseModel)="hiddenModal()" [animate]="nameNimate" ></app-show-frete>
 
 <ng-template [ngIf]="detalhe != undefined">
 
@@ -58,7 +58,11 @@
                 <div class="container-frete mt-2 p-4">
                     <div class="tituli-frete">Consultar frete e prazo de entrega</div>
                     <div class="container-input-button mt-2 d-flex">
-                        <input (keydown)="onKeyDown($event)" (keyup)="keyUpGetCep($event)" type="text" class="form-control" placeholder="Inserir CEP">
+                        <div class="container-legenda w-100">
+                            <input (keydown)="onKeyDown($event)" (keyup)="keyUpGetCep($event)" type="text" [value]="cep" [class.erro]="isErro" class="form-control" placeholder="Inserir CEP">
+                            <!-- <div class="mt-2 text-danger">O campo está vazio</div> -->
+                            <div class="alert alert-danger mt-4" *ngIf="isErro">O campo está vazio</div>
+                        </div>
                         <app-button (EventClick)="showModal()" ></app-button>
                     </div>
                 </div>

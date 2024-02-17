@@ -84,9 +84,8 @@ export class Autenticacao {
                         return false
                     }
                 }
-                else{ 
-                    return false
-                }
+                
+                return false
             
            } catch (error) {
                 return false

@@ -14,8 +14,10 @@ import { environment } from 'src/environments/environment.development';
 })
 export class DetalheComponent {
   
+  public nameNimate:string
+  public isErro:boolean
   public isModal: boolean
-  private cep:string
+  public cep:string = ""
   public setImagem:string
   public ImagemArry:Array<IImagemProduto>
   public urlbaseImagem:string = environment.API
@@ -39,9 +41,7 @@ export class DetalheComponent {
       .then((response:IReponse) => {
 
         if(response.status = "OK"){
-
           const data = response.data as IProduto 
-      
           this.detalhe = data
           if(data.imagemProduto.length){
             this.ImagemArry = data.imagemProduto
@@ -53,7 +53,6 @@ export class DetalheComponent {
       })
       .catch((erro:any) => console.log(erro))
     }
-
    
   }
 
@@ -63,13 +62,16 @@ export class DetalheComponent {
     
   }
 
-  onKeyDown(event: KeyboardEvent) {
-
+  onKeyDown(event: Event) {
+    const eventKey = (event as KeyboardEvent)
     // Verifica se o caractere digitado não é um número
-    if (!(event.key >= '0' && event.key <= '9' || event.key === 'Backspace')) {
+    if (!(eventKey.key >= '0' && eventKey.key <= '9' || eventKey.key === 'Backspace')) {
       // Impede a ação padrão do evento (inserir o caractere no campo)
        event.preventDefault();
+    }else{
+      this.isErro = false
     }
+
   }
 
   keyUpGetCep(event: Event){
@@ -79,24 +81,39 @@ export class DetalheComponent {
     let key = (<KeyboardEvent>event).key
 
     if(!allowedChars.test(key)){
-      input.value = input.value.replace(/\D/g, '') 
+      input.value = input.value.replace(/\D/g, '')
     }
-
     this.cep = input.value
-
   }
 
   showModal(){
-    
-    this.scrollService.disableScroll()
-    this.isModal = true
-    
+
+    if(this.cep != undefined){
+      this.scrollService.disableScroll()
+      this.isModal = true
+      this.nameNimate = "show-modal"
+    }else{
+      this.isErro = true
+    }
+        
 
   }
 
   hiddenModal(){
-    this.scrollService.enableScroll()
-    this.isModal = false
+    this.nameNimate = "hidden-modal"
+
+    setTimeout(() => {
+      this.scrollService.enableScroll()
+      this.isModal = false
+      this.cep = ""
+    }, 400);
+
+  }
+
+  requestFrete(){
+    this.licuteService.calculoFrete(this.cep)
+      .then((response:IReponse) => console.log(response))
+      .catch((erro:Error) => console.log(erro))
   }
   
 
