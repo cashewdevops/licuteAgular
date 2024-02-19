@@ -88,7 +88,7 @@ export class DetalheComponent {
 
   showModal(){
 
-    if(this.cep != undefined){
+    if(this.cep != ""){
       this.scrollService.disableScroll()
       this.isModal = true
       this.nameNimate = "show-modal"
@@ -111,7 +111,7 @@ export class DetalheComponent {
   }
 
   requestFrete(){
-    this.licuteService.calculoFrete(this.cep)
+    this.licuteService.calculoFrete(this.cep, this.detalhe.id)
       .then((response:IReponse) => console.log(response))
       .catch((erro:Error) => console.log(erro))
   }
